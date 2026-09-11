@@ -591,6 +591,34 @@ h4, .h4 { font-family: var(--font-text); font-size: var(--step-0); font-weight: 
 .paper .proofline strong { color: var(--on-paper); }
 .paper .proofline .stars { color: var(--berry-ink); }
 
+/* Voices — three real customer quotes (testimonials.json). Set as pull quotes,
+   not cards: a hairline above each, the opening mark in the brand green, the
+   attribution as a small line. Same classes on white and paper bands. */
+.voices { display: grid; gap: var(--s-6); margin-top: var(--s-7); }
+@media (min-width: 720px) { .voices { grid-template-columns: repeat(3, 1fr); gap: var(--s-6) var(--s-7); } }
+.voice {
+  margin: 0; padding-top: var(--s-5); border-top: 1px solid var(--ink-line);
+  position: relative; max-width: var(--measure-tight);
+}
+.paper .voice { border-top-color: var(--paper-line); }
+.voice__text {
+  font-size: var(--step-0); line-height: 1.55; color: var(--on-ink);
+  text-wrap: pretty; hanging-punctuation: first;
+}
+.voice__text::before { content: "\201C"; color: var(--glow); font-weight: 700; }
+.voice__text::after  { content: "\201D"; color: var(--glow); font-weight: 700; }
+.paper .voice__text { color: var(--on-paper); }
+.voice__who {
+  margin-top: var(--s-3); display: flex; flex-wrap: wrap; gap: 0 .5em;
+  font-size: var(--step--1); color: var(--on-ink-dim);
+}
+.voice__who strong { color: var(--on-ink); font-weight: 700; }
+.paper .voice__who { color: var(--on-paper-dim); }
+.paper .voice__who strong { color: var(--on-paper); }
+.voice__city::before { content: "\00B7"; margin-right: .5em; }
+.voices-head { margin-top: var(--s-8); max-width: var(--measure); }
+.voices-head p { margin-top: var(--s-2); }
+
 /* Steps */
 .steps { counter-reset: step; display: grid; gap: var(--s-5); }
 @media (min-width: 720px) { .steps { grid-template-columns: repeat(4, 1fr); } }

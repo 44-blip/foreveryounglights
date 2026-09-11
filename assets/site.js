@@ -56,9 +56,9 @@
   function seasonLine(d) {
     var y = d.getFullYear(), m = d.getMonth() + 1, day = d.getDate();
     if (m === 1) return "Takedown season — now taking early bookings for the " + y + " season.";
-    if (m <= 8)  return "Now taking early bookings for the " + y + " season — installs run October 15 through December 10.";
-    if (m === 9 || (m === 10 && day < 15)) return "Now booking the " + y + " season — installs run October 15 through December 10.";
-    if ((m === 10 && day >= 15) || m === 11 || (m === 12 && day <= 10))
+    if (m <= 8)  return "Now taking early bookings for the " + y + " season — installs start early October and run through December 10.";
+    if (m === 9) return "Now booking the " + y + " season — installs start early October and run through December 10.";
+    if (m === 10 || m === 11 || (m === 12 && day <= 10))
       return "Installing now — the " + y + " season runs through December 10. Call or text for remaining dates.";
     return "The " + y + " install season is closed. Takedown runs in January; booking opens again in September.";
   }
