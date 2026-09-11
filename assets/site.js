@@ -4,7 +4,8 @@
 
    1. Mobile nav toggle              (F-VISUAL-03: named button, aria-expanded kept honest)
    2. Package choice carries into the form  (F-SXO-06)
-   3. Season line self-correction    (F-CONTENT-01: the built-in text is already right; this
+   3. Entrance reveal                (STEP 3: the site's only animation)
+   4. Season line self-correction    (F-CONTENT-01: the built-in text is already right; this
                                       only fixes it if the page is served past its season)
 */
 (function () {
@@ -60,7 +61,58 @@
     if (name) setTimeout(function () { name.focus({ preventScroll: true }); }, 450);
   });
 
-  /* -- 3. season line ------------------------------------------------------ */
+  /* -- 3. entrance reveal --------------------------------------------------- */
+  // ONE animation: fade + rise, once per block, on first scroll into view.
+  // Blocks already on screen when the page loads are shown instantly (no motion).
+  (function () {
+    var root = document.documentElement;
+    if (root.className.indexOf("js-motion") === -1) return;
+    root.setAttribute("data-reveal-ready", "");
+
+    var bands = document.querySelectorAll("main > .band");
+    var targets = [];
+    for (var b = 1; b < bands.length; b++) {            // band 0 = hero, never moves
+      var wrap = bands[b].querySelector(":scope > .wrap");
+      if (!wrap) continue;
+      for (var c = 0; c < wrap.children.length; c++) targets.push(wrap.children[c]);
+    }
+    if (!targets.length) return;
+
+    function show(el, instant) {
+      if (instant) el.classList.add("is-in--now");
+      el.classList.add("is-in");
+    }
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach(function (el) { show(el, true); });
+      return;
+    }
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var delivered = false;
+    var io = new IntersectionObserver(function (entries) {
+      delivered = true;
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        show(e.target, false);
+        io.unobserve(e.target);                          // once. never replays.
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0 });
+
+    var observed = [];
+    targets.forEach(function (el) {
+      if (el.getBoundingClientRect().top < vh) show(el, true);   // above the fold
+      else { observed.push(el); io.observe(el); }
+    });
+
+    // Last resort. An observer that has never fired once means this renderer is not
+    // delivering intersections at all — show the page rather than hide it forever.
+    if (observed.length) setTimeout(function () {
+      if (delivered) return;
+      io.disconnect();
+      observed.forEach(function (el) { show(el, true); });
+    }, 1500);
+  })();
+
+  /* -- 4. season line ------------------------------------------------------ */
   // The text in the HTML is generated at build time and is what crawlers read.
   // This only rewrites it when the page outlives the phase it was built in.
   function seasonLine(d) {
