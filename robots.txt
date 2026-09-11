@@ -1,0 +1,11 @@
+# foreveryounglights.com
+# Every crawler — search and AI alike — gets the same fully-rendered static HTML
+# a browser gets. There is no JS shell left to miss (F-GEO-01, F-TECH-01).
+
+User-agent: *
+Allow: /
+Disallow: /.netlify/
+
+# build/assemble.py appends the Sitemap line below on every build.
+
+Sitemap: https://foreveryounglights.com/sitemap.xml

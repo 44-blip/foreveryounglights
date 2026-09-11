@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200" fill="none" aria-hidden="true">
+  <g stroke-linecap="round" stroke-width="3">
+    <g stroke="#93C5FD" opacity=".75" transform="translate(44 40) scale(1.35)">
+      <path d="M0-16V16M-13.9-8 13.9 8M-13.9 8 13.9-8"/>
+      <path d="M0-16l-4.4 5.4M0-16l4.4 5.4M0 16l-4.4-5.4M0 16l4.4-5.4"/>
+      <path d="M-13.9-8l1.2 6.8M-13.9-8l6.8-1.2M13.9 8l-1.2-6.8M13.9 8l-6.8 1.2"/>
+      <path d="M-13.9 8l6.8 1.2M-13.9 8l1.2-6.8M13.9-8l-6.8-1.2M13.9-8l-1.2 6.8"/>
+    </g>
+    <g stroke="#FCA5A5" opacity=".7" transform="translate(146 26) scale(.95)">
+      <path d="M0-16V16M-13.9-8 13.9 8M-13.9 8 13.9-8"/>
+      <path d="M0-16l-4.4 5.4M0-16l4.4 5.4M0 16l-4.4-5.4M0 16l4.4-5.4"/>
+      <path d="M-13.9-8l1.2 6.8M-13.9-8l6.8-1.2M13.9 8l-1.2-6.8M13.9 8l-6.8 1.2"/>
+    </g>
+    <g stroke="#93C5FD" opacity=".6" transform="translate(240 62) scale(1.1)">
+      <path d="M0-16V16M-13.9-8 13.9 8M-13.9 8 13.9-8"/>
+      <path d="M0-16l-4.4 5.4M0-16l4.4 5.4M0 16l-4.4-5.4M0 16l4.4-5.4"/>
+      <path d="M-13.9 8l6.8 1.2M-13.9 8l1.2-6.8M13.9-8l-6.8-1.2M13.9-8l-1.2 6.8"/>
+    </g>
+    <g stroke="#CBD5E1" opacity=".8" transform="translate(292 14) scale(.6)">
+      <path d="M0-16V16M-13.9-8 13.9 8M-13.9 8 13.9-8"/>
+      <path d="M0-16l-4.4 5.4M0-16l4.4 5.4M0 16l-4.4-5.4M0 16l4.4-5.4"/>
+    </g>
+    <g stroke="#93C5FD" opacity=".45" transform="translate(196 118) scale(.7)">
+      <path d="M0-16V16M-13.9-8 13.9 8M-13.9 8 13.9-8"/>
+      <path d="M0-16l-4.4 5.4M0-16l4.4 5.4M0 16l-4.4-5.4M0 16l4.4-5.4"/>
+    </g>
+    <g stroke="#FCA5A5" opacity=".4" transform="translate(88 128) scale(.55)">
+      <path d="M0-16V16M-13.9-8 13.9 8M-13.9 8 13.9-8"/>
+      <path d="M0-16l-4.4 5.4M0-16l4.4 5.4M0 16l-4.4-5.4M0 16l4.4-5.4"/>
+    </g>
+  </g>
+</svg>
