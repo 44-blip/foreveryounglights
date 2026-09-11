@@ -50,6 +50,16 @@
     }
   } catch (e) { /* never let this break the form */ }
 
+  /* -- 2b. "Get my quote" jump: after the anchor scroll, put the cursor in Name --------- */
+  // Every "Get my quote" button (header, hero, dock, mid-page) is a plain #quote link, so
+  // it works without JS; this only saves the extra tap once the form is in view.
+  document.addEventListener("click", function (ev) {
+    var a = ev.target && ev.target.closest ? ev.target.closest('a[href="#quote"]') : null;
+    if (!a) return;
+    var name = document.querySelector(".quote input[name='name']");
+    if (name) setTimeout(function () { name.focus({ preventScroll: true }); }, 450);
+  });
+
   /* -- 3. season line ------------------------------------------------------ */
   // The text in the HTML is generated at build time and is what crawlers read.
   // This only rewrites it when the page outlives the phase it was built in.

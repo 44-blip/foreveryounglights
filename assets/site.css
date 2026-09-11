@@ -476,6 +476,20 @@ h4, .h4 { font-family: var(--font-text); font-size: var(--step-0); font-weight: 
 .header-cta { padding-inline: .95em; }
 .header-cta .btn__label { display: none; }
 @media (min-width: 560px) { .header-cta .btn__label { display: inline; } }
+/* The quote button keeps its label at every width — it is the primary action (step 2). */
+.header-cta--quote .btn__label { display: inline; }
+.header-cta--quote { padding-inline: var(--s-4); white-space: nowrap; }
+/* Under 560px the header holds logo · call icon · quote · menu in 390px: tighten the quote
+   button's padding so the row never exceeds the viewport (measured: 402px at s-4). */
+@media (max-width: 559px) { .header-cta--quote { padding-inline: var(--s-3); font-size: var(--step--1); } }
+/* Under 400px (iPhone SE/mini, small Androids) the label shortens to "Quote" — measured 377px of 360 with the long one. */
+.header-cta--quote .btn__label--short { display: none; }
+@media (max-width: 399px) { .header-cta--quote .btn__label--long { display: none; } .header-cta--quote .btn__label--short { display: inline; } }
+
+/* Form-in-the-hero (cost page, step 2): text left, the quote card right from 900px;
+   on a phone the card follows the price bands. Same grid as the home hero. */
+.hero__grid--form { display: grid; gap: var(--s-6); align-items: start; }
+@media (min-width: 900px) { .hero__grid--form { grid-template-columns: 1.1fr .9fr; gap: var(--s-7); } .hero__grid--form > div:last-child { position: sticky; top: calc(var(--header-h) + var(--s-4)); } }
 
 /* --------------------------------------------------------------------------
    8. HERO  (F-VISUAL-02, F-SXO-02, F-SXO-11)
@@ -758,7 +772,8 @@ h4, .h4 { font-family: var(--font-text); font-size: var(--step-0); font-weight: 
    -------------------------------------------------------------------------- */
 .dock {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
-  display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2);
+  /* Call · Text · Get my quote — the red one is the primary and gets the wider track (step 2). */
+  display: grid; grid-template-columns: 1fr 1fr 1.6fr; gap: var(--s-2);
   padding: var(--s-2) var(--s-3) calc(var(--s-2) + env(safe-area-inset-bottom, 0px));
   background: #FFFFFF;
   border-top: 1px solid var(--ink-line);

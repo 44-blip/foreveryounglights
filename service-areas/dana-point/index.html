@@ -257,9 +257,9 @@
         <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
         <span class="btn__label">Call</span><span class="sr-only"> Forever Young Lighting at (949) 295-2090</span>
       </a>
-      <a class="btn btn--primary header-cta" href="sms:+19492952090?&amp;body=Hi%20Angel%20%E2%80%94%20I%27d%20like%20a%20quote%20for%20Christmas%20lights.%20Here%20are%202%20photos%20of%20the%20front%20of%20my%20house%3A" data-cta="header-text">
-        <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2H9l-5 4V6c0-1.1.9-2 2-2z"/></svg>
-        <span class="btn__label">Text</span><span class="sr-only"> Forever Young Lighting at (949) 295-2090</span>
+      
+      <a class="btn btn--primary header-cta header-cta--quote" href="#quote" data-cta="header-quote">
+        <span class="btn__label btn__label--long">Get a quote</span><span class="btn__label btn__label--short" aria-hidden="true">Quote</span><span class="sr-only"> — jump to the quote form</span>
       </a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-panel" hidden>
         <span class="sr-only">Menu</span>
@@ -306,6 +306,15 @@
     <p class="lede">We hang C9 lights on Dana Point rooflines, wrap trees, light the entry and take it all
     down in January. It is south of our base in Laguna Hills &mdash; down the 5 and out Crown Valley, or
     along the coast road &mdash; and close enough that we can come back out mid-season.</p>
+    <div class="hero__cta">
+<a class="btn btn--primary" href="#quote" data-cta="quote">
+Get my quote<span class="sr-only"> — jump to the quote form</span>
+</a>
+<a class="btn btn--ghost" href="tel:+19492952090" data-cta="call">
+<svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+Call now<span class="sr-only"> — (949) 295-2090</span>
+</a>
+</div>
 
     <div class="pricebands">
       <div class="priceband">
@@ -524,7 +533,7 @@
   <div class="quote__head">
     <h2>Get your quote</h2>
     <p class="quote__sub">
-      Name and phone is all we need to start. Most quotes come back the same day.
+      Name and phone is enough to start. City and storeys make the number tighter. Most quotes come back the same day.
     </p>
   </div>
 
@@ -556,12 +565,47 @@
       </label>
     </div>
 
+    <div class="fieldrow fieldrow--2">
+      <label class="field" for="q-city">
+        <span class="field__label">City</span>
+        
+        <select class="select" id="q-city" name="city">
+          <option value="" disabled selected>Choose your city…</option>
+          <option>Laguna Hills</option>
+          <option>Laguna Beach</option>
+          <option>Laguna Niguel</option>
+          <option>Laguna Woods</option>
+          <option>Aliso Viejo</option>
+          <option>Mission Viejo</option>
+          <option>Lake Forest</option>
+          <option>Ladera Ranch</option>
+          <option>Rancho Santa Margarita</option>
+          <option>Dana Point</option>
+          <option>San Juan Capistrano</option>
+          <option>San Clemente</option>
+          <option>Irvine</option>
+          <option value="other">Somewhere else in Orange County</option>
+        </select>
+      </label>
+
+      <label class="field" for="q-stories">
+        <span class="field__label">Home</span>
+        <select class="select" id="q-stories" name="stories">
+          <option value="" disabled selected>Single or two story?</option>
+          <option value="single">Single story</option>
+          <option value="two">Two story</option>
+          <option value="three">Three story or more</option>
+        </select>
+      </label>
+    </div>
+
     <button class="btn btn--primary btn--lg btn--block" type="submit">Get my quote</button>
 
 <p class="quote__alt">
-      <strong>Faster:</strong> text two photos of the front of your house to
+      <strong>Two photos gets you a real number instead of a range.</strong>
+      After you send this, text two photos of the front of your house to
       <a class="linkish" href="sms:+19492952090?&amp;body=Hi%20Angel%20%E2%80%94%20I%27d%20like%20a%20quote%20for%20Christmas%20lights.%20Here%20are%202%20photos%20of%20the%20front%20of%20my%20house%3A">(949) 295-2090</a>
-      and we quote off the photos — no site visit needed for most homes. Prefer to talk?
+      — or skip it and we will ask. Prefer to talk?
       <a class="linkish" href="tel:+19492952090">Call (949) 295-2090</a>.
     </p>
 
@@ -575,30 +619,6 @@
                  placeholder="you@example.com">
         </label>
 
-        <label class="field" for="q-city">
-          <span class="field__label">City</span>
-          
-          <select class="select" id="q-city" name="city">
-            <option value="" disabled selected>Choose your city…</option>
-            <option>Laguna Hills</option>
-            <option>Laguna Beach</option>
-            <option>Laguna Niguel</option>
-            <option>Laguna Woods</option>
-            <option>Aliso Viejo</option>
-            <option>Mission Viejo</option>
-            <option>Lake Forest</option>
-            <option>Ladera Ranch</option>
-            <option>Rancho Santa Margarita</option>
-            <option>Dana Point</option>
-            <option>San Juan Capistrano</option>
-            <option>San Clemente</option>
-            <option>Irvine</option>
-            <option value="other">Somewhere else in Orange County</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="fieldrow fieldrow--2">
         <label class="field" for="q-package">
           <span class="field__label">
             Package
@@ -610,16 +630,6 @@
             <option value="full-front">Premium Full Front — $1,000–$2,500</option>
             <option value="permanent">Permanent RGB roofline lighting</option>
             <option value="commercial">Commercial property</option>
-          </select>
-        </label>
-
-        <label class="field" for="q-stories">
-          <span class="field__label">Home</span>
-          <select class="select" id="q-stories" name="stories">
-            <option value="" disabled selected>Single or two story?</option>
-            <option value="single">Single story</option>
-            <option value="two">Two story</option>
-            <option value="three">Three story or more</option>
           </select>
         </label>
       </div>
@@ -741,9 +751,13 @@
     <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
     Call
   </a>
-  <a class="btn btn--primary" href="sms:+19492952090?&amp;body=Hi%20Angel%20%E2%80%94%20I%27d%20like%20a%20quote%20for%20Christmas%20lights.%20Here%20are%202%20photos%20of%20the%20front%20of%20my%20house%3A" data-cta="dock-text">
+  <a class="btn btn--ghost" href="sms:+19492952090?&amp;body=Hi%20Angel%20%E2%80%94%20I%27d%20like%20a%20quote%20for%20Christmas%20lights.%20Here%20are%202%20photos%20of%20the%20front%20of%20my%20house%3A" data-cta="dock-text">
     <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2H9l-5 4V6c0-1.1.9-2 2-2z"/></svg>
-    Text 2 photos
+    Text
+  </a>
+  
+  <a class="btn btn--primary" href="#quote" data-cta="dock-quote">
+    Get my quote<span class="sr-only"> — jump to the quote form</span>
   </a>
 </div>
 

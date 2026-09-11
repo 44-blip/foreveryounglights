@@ -240,9 +240,9 @@
         <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
         <span class="btn__label">Call</span><span class="sr-only"> Forever Young Lighting at (949) 295-2090</span>
       </a>
-      <a class="btn btn--primary header-cta" href="sms:+19492952090?&amp;body=Hi%20Angel%20%E2%80%94%20I%27d%20like%20a%20quote%20for%20Christmas%20lights.%20Here%20are%202%20photos%20of%20the%20front%20of%20my%20house%3A" data-cta="header-text">
-        <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2H9l-5 4V6c0-1.1.9-2 2-2z"/></svg>
-        <span class="btn__label">Text</span><span class="sr-only"> Forever Young Lighting at (949) 295-2090</span>
+      
+      <a class="btn btn--primary header-cta header-cta--quote" href="#quote" data-cta="header-quote">
+        <span class="btn__label btn__label--long">Get a quote</span><span class="btn__label btn__label--short" aria-hidden="true">Quote</span><span class="sr-only"> — jump to the quote form</span>
       </a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-panel" hidden>
         <span class="sr-only">Menu</span>
@@ -292,9 +292,8 @@
       <p class="note hero__note">Get on the calendar before Thanksgiving, November 26 — the week before it always goes first.</p>
 
       <div class="hero__cta">
-<a class="btn btn--primary btn--lg" href="sms:+19492952090?&amp;body=Hi%20Angel%20%E2%80%94%20I%27d%20like%20a%20quote%20for%20Christmas%20lights.%20Here%20are%202%20photos%20of%20the%20front%20of%20my%20house%3A" data-cta="text">
-<svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2H9l-5 4V6c0-1.1.9-2 2-2z"/></svg>
-Text 2 photos<span class="sr-only"> — text Forever Young Lighting at (949) 295-2090</span>
+<a class="btn btn--primary btn--lg" href="#quote" data-cta="quote">
+Get my quote<span class="sr-only"> — jump to the quote form</span>
 </a>
 <a class="btn btn--ghost btn--lg" href="tel:+19492952090" data-cta="call">
 <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
@@ -316,6 +315,150 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
 </picture>
       <p class="hero__badge">Premium Full Front</p>
     </div>
+
+  </div>
+</section>
+
+<section class="band band--paper band--tight" id="get-a-quote">
+  <div class="wrap wrap--narrow paper">
+    
+<div class="quote" id="quote">
+  <div class="quote__head">
+    <h2>Get your quote</h2>
+    <p class="quote__sub">
+      Name and phone is enough to start. City and storeys make the number tighter. Most quotes come back the same day.
+    </p>
+  </div>
+
+  <form name="quote" method="POST" action="https://foreveryounglights.netlify.app/thanks/"
+        data-netlify="true" netlify-honeypot="company-website">
+    <input type="hidden" name="form-name" value="quote">
+    <input type="hidden" name="page" value="https://foreveryounglights.com/">
+
+<p class="hp" aria-hidden="true">
+      <label>Leave this field empty
+        <input name="company-website" type="text" tabindex="-1" autocomplete="off">
+      </label>
+    </p>
+
+    <div class="fieldrow fieldrow--2">
+      <label class="field" for="q-name">
+        <span class="field__label">Your name <span class="field__req" aria-hidden="true">*</span></span>
+        <input class="input" id="q-name" name="name" type="text" required
+               autocomplete="name" placeholder="First and last">
+      </label>
+
+      <label class="field" for="q-phone">
+        <span class="field__label">
+          Mobile number <span class="field__req" aria-hidden="true">*</span>
+          <span class="field__hint">We text back — no call unless you ask for one.</span>
+        </span>
+        <input class="input" id="q-phone" name="phone" type="tel" required
+               autocomplete="tel" inputmode="tel" placeholder="(949) 555-0123">
+      </label>
+    </div>
+
+    <div class="fieldrow fieldrow--2">
+      <label class="field" for="q-city">
+        <span class="field__label">City</span>
+        
+        <select class="select" id="q-city" name="city">
+          <option value="" disabled selected>Choose your city…</option>
+          <option>Laguna Hills</option>
+          <option>Laguna Beach</option>
+          <option>Laguna Niguel</option>
+          <option>Laguna Woods</option>
+          <option>Aliso Viejo</option>
+          <option>Mission Viejo</option>
+          <option>Lake Forest</option>
+          <option>Ladera Ranch</option>
+          <option>Rancho Santa Margarita</option>
+          <option>Dana Point</option>
+          <option>San Juan Capistrano</option>
+          <option>San Clemente</option>
+          <option>Irvine</option>
+          <option value="other">Somewhere else in Orange County</option>
+        </select>
+      </label>
+
+      <label class="field" for="q-stories">
+        <span class="field__label">Home</span>
+        <select class="select" id="q-stories" name="stories">
+          <option value="" disabled selected>Single or two story?</option>
+          <option value="single">Single story</option>
+          <option value="two">Two story</option>
+          <option value="three">Three story or more</option>
+        </select>
+      </label>
+    </div>
+
+    <button class="btn btn--primary btn--lg btn--block" type="submit">Get my quote</button>
+
+<p class="quote__alt">
+      <strong>Two photos gets you a real number instead of a range.</strong>
+      After you send this, text two photos of the front of your house to
+      <a class="linkish" href="sms:+19492952090?&amp;body=Hi%20Angel%20%E2%80%94%20I%27d%20like%20a%20quote%20for%20Christmas%20lights.%20Here%20are%202%20photos%20of%20the%20front%20of%20my%20house%3A">(949) 295-2090</a>
+      — or skip it and we will ask. Prefer to talk?
+      <a class="linkish" href="tel:+19492952090">Call (949) 295-2090</a>.
+    </p>
+
+<details class="quote__more">
+      <summary>Add details so the quote is exact (optional)</summary>
+
+      <div class="fieldrow fieldrow--2">
+        <label class="field" for="q-email">
+          <span class="field__label">Email</span>
+          <input class="input" id="q-email" name="email" type="email" autocomplete="email"
+                 placeholder="you@example.com">
+        </label>
+
+        <label class="field" for="q-package">
+          <span class="field__label">
+            Package
+            <span class="field__hint">Set for you if you arrived from a package button.</span>
+          </span>
+          <select class="select" id="q-package" name="package">
+            <option value="" disabled selected>Not sure yet — help me choose</option>
+            <option value="roofline">Basic Roofline — $400–$800</option>
+            <option value="full-front">Premium Full Front — $1,000–$2,500</option>
+            <option value="permanent">Permanent RGB roofline lighting</option>
+            <option value="commercial">Commercial property</option>
+          </select>
+        </label>
+      </div>
+
+      <fieldset class="field" style="border:0;padding:0">
+        <legend class="field__label" style="padding:0">What would you like lit?</legend>
+        <div class="choices">
+          <label class="choice"><input type="checkbox" name="areas" value="roofline"> Roofline</label>
+          <label class="choice"><input type="checkbox" name="areas" value="entry"> Entry &amp; garage</label>
+          <label class="choice"><input type="checkbox" name="areas" value="trees"> Trees</label>
+          <label class="choice"><input type="checkbox" name="areas" value="bushes"> Bushes &amp; hedges</label>
+          <label class="choice"><input type="checkbox" name="areas" value="pathway"> Pathway</label>
+          <label class="choice"><input type="checkbox" name="areas" value="wreath"> Wreath</label>
+        </div>
+      </fieldset>
+
+      <label class="field" for="q-hoa">
+        <span class="field__label">
+          HOA
+          <span class="field__hint">If your community has lighting rules, name it and we design within them.</span>
+        </span>
+        <input class="input" id="q-hoa" name="hoa" type="text" placeholder="e.g. Nellie Gail Ranch">
+      </label>
+
+      <label class="field" for="q-notes">
+        <span class="field__label">Anything else</span>
+        <textarea class="textarea" id="q-notes" name="notes" rows="4"
+                  placeholder="Colours you want, a date you have in mind, anything unusual about the roof."></textarea>
+      </label>
+    </details>
+
+    <p class="note" style="margin-top:var(--s-4)">
+      We use your number to text you a quote and nothing else. No newsletter, no reselling.
+    </p>
+  </form>
+</div>
 
   </div>
 </section>
@@ -628,149 +771,6 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
   </div>
 </section>
 
-<section class="band band--night">
-  <div class="wrap wrap--narrow">
-    
-<div class="quote" id="quote">
-  <div class="quote__head">
-    <h2>Get your quote</h2>
-    <p class="quote__sub">
-      Name and phone is all we need to start. Most quotes come back the same day.
-    </p>
-  </div>
-
-  <form name="quote" method="POST" action="https://foreveryounglights.netlify.app/thanks/"
-        data-netlify="true" netlify-honeypot="company-website">
-    <input type="hidden" name="form-name" value="quote">
-    <input type="hidden" name="page" value="https://foreveryounglights.com/">
-
-<p class="hp" aria-hidden="true">
-      <label>Leave this field empty
-        <input name="company-website" type="text" tabindex="-1" autocomplete="off">
-      </label>
-    </p>
-
-    <div class="fieldrow fieldrow--2">
-      <label class="field" for="q-name">
-        <span class="field__label">Your name <span class="field__req" aria-hidden="true">*</span></span>
-        <input class="input" id="q-name" name="name" type="text" required
-               autocomplete="name" placeholder="First and last">
-      </label>
-
-      <label class="field" for="q-phone">
-        <span class="field__label">
-          Mobile number <span class="field__req" aria-hidden="true">*</span>
-          <span class="field__hint">We text back — no call unless you ask for one.</span>
-        </span>
-        <input class="input" id="q-phone" name="phone" type="tel" required
-               autocomplete="tel" inputmode="tel" placeholder="(949) 555-0123">
-      </label>
-    </div>
-
-    <button class="btn btn--primary btn--lg btn--block" type="submit">Get my quote</button>
-
-<p class="quote__alt">
-      <strong>Faster:</strong> text two photos of the front of your house to
-      <a class="linkish" href="sms:+19492952090?&amp;body=Hi%20Angel%20%E2%80%94%20I%27d%20like%20a%20quote%20for%20Christmas%20lights.%20Here%20are%202%20photos%20of%20the%20front%20of%20my%20house%3A">(949) 295-2090</a>
-      and we quote off the photos — no site visit needed for most homes. Prefer to talk?
-      <a class="linkish" href="tel:+19492952090">Call (949) 295-2090</a>.
-    </p>
-
-<details class="quote__more">
-      <summary>Add details so the quote is exact (optional)</summary>
-
-      <div class="fieldrow fieldrow--2">
-        <label class="field" for="q-email">
-          <span class="field__label">Email</span>
-          <input class="input" id="q-email" name="email" type="email" autocomplete="email"
-                 placeholder="you@example.com">
-        </label>
-
-        <label class="field" for="q-city">
-          <span class="field__label">City</span>
-          
-          <select class="select" id="q-city" name="city">
-            <option value="" disabled selected>Choose your city…</option>
-            <option>Laguna Hills</option>
-            <option>Laguna Beach</option>
-            <option>Laguna Niguel</option>
-            <option>Laguna Woods</option>
-            <option>Aliso Viejo</option>
-            <option>Mission Viejo</option>
-            <option>Lake Forest</option>
-            <option>Ladera Ranch</option>
-            <option>Rancho Santa Margarita</option>
-            <option>Dana Point</option>
-            <option>San Juan Capistrano</option>
-            <option>San Clemente</option>
-            <option>Irvine</option>
-            <option value="other">Somewhere else in Orange County</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="fieldrow fieldrow--2">
-        <label class="field" for="q-package">
-          <span class="field__label">
-            Package
-            <span class="field__hint">Set for you if you arrived from a package button.</span>
-          </span>
-          <select class="select" id="q-package" name="package">
-            <option value="" disabled selected>Not sure yet — help me choose</option>
-            <option value="roofline">Basic Roofline — $400–$800</option>
-            <option value="full-front">Premium Full Front — $1,000–$2,500</option>
-            <option value="permanent">Permanent RGB roofline lighting</option>
-            <option value="commercial">Commercial property</option>
-          </select>
-        </label>
-
-        <label class="field" for="q-stories">
-          <span class="field__label">Home</span>
-          <select class="select" id="q-stories" name="stories">
-            <option value="" disabled selected>Single or two story?</option>
-            <option value="single">Single story</option>
-            <option value="two">Two story</option>
-            <option value="three">Three story or more</option>
-          </select>
-        </label>
-      </div>
-
-      <fieldset class="field" style="border:0;padding:0">
-        <legend class="field__label" style="padding:0">What would you like lit?</legend>
-        <div class="choices">
-          <label class="choice"><input type="checkbox" name="areas" value="roofline"> Roofline</label>
-          <label class="choice"><input type="checkbox" name="areas" value="entry"> Entry &amp; garage</label>
-          <label class="choice"><input type="checkbox" name="areas" value="trees"> Trees</label>
-          <label class="choice"><input type="checkbox" name="areas" value="bushes"> Bushes &amp; hedges</label>
-          <label class="choice"><input type="checkbox" name="areas" value="pathway"> Pathway</label>
-          <label class="choice"><input type="checkbox" name="areas" value="wreath"> Wreath</label>
-        </div>
-      </fieldset>
-
-      <label class="field" for="q-hoa">
-        <span class="field__label">
-          HOA
-          <span class="field__hint">If your community has lighting rules, name it and we design within them.</span>
-        </span>
-        <input class="input" id="q-hoa" name="hoa" type="text" placeholder="e.g. Nellie Gail Ranch">
-      </label>
-
-      <label class="field" for="q-notes">
-        <span class="field__label">Anything else</span>
-        <textarea class="textarea" id="q-notes" name="notes" rows="4"
-                  placeholder="Colours you want, a date you have in mind, anything unusual about the roof."></textarea>
-      </label>
-    </details>
-
-    <p class="note" style="margin-top:var(--s-4)">
-      We use your number to text you a quote and nothing else. No newsletter, no reselling.
-    </p>
-  </form>
-</div>
-
-  </div>
-</section>
-
 <section class="band band--night band--tight">
   <div class="wrap">
     <div class="sister">
@@ -873,9 +873,13 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
     <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
     Call
   </a>
-  <a class="btn btn--primary" href="sms:+19492952090?&amp;body=Hi%20Angel%20%E2%80%94%20I%27d%20like%20a%20quote%20for%20Christmas%20lights.%20Here%20are%202%20photos%20of%20the%20front%20of%20my%20house%3A" data-cta="dock-text">
+  <a class="btn btn--ghost" href="sms:+19492952090?&amp;body=Hi%20Angel%20%E2%80%94%20I%27d%20like%20a%20quote%20for%20Christmas%20lights.%20Here%20are%202%20photos%20of%20the%20front%20of%20my%20house%3A" data-cta="dock-text">
     <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2H9l-5 4V6c0-1.1.9-2 2-2z"/></svg>
-    Text 2 photos
+    Text
+  </a>
+  
+  <a class="btn btn--primary" href="#quote" data-cta="dock-quote">
+    Get my quote<span class="sr-only"> — jump to the quote form</span>
   </a>
 </div>
 
