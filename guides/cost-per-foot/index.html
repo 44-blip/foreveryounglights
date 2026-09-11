@@ -253,7 +253,7 @@
       </a>
       
       <a class="btn btn--primary header-cta header-cta--quote" href="#quote" data-cta="header-quote">
-        <span class="btn__label btn__label--long">Get a quote</span><span class="btn__label btn__label--short" aria-hidden="true">Quote</span><span class="sr-only"> — jump to the quote form</span>
+        <span class="btn__label btn__label--long">Get my quote</span><span class="btn__label btn__label--short" aria-hidden="true">Quote</span><span class="sr-only"> — jump to the quote form</span>
       </a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-panel" hidden>
         <span class="sr-only">Menu</span>
@@ -327,7 +327,7 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
       <h2>What we do instead</h2>
       <p>We publish two packages with real ranges, and the range is everything.</p>
       <p><strong>Basic Roofline runs about $400–$800 for most homes.</strong> That is C9 LED lights along your roofline, timers, roof-safe clips, the install, every repair during the season, and takedown and storage in January.</p>
-      <p><strong>Premium Full Front runs about $1,000–$2,500 for most homes.</strong> Same list, plus the entry and the garage, trees and bushes wrapped, pathway and railing lights, and custom colours.</p>
+      <p><strong>Premium Full Front runs about $1,000–$2,500 for most homes.</strong> Same list, plus the entry and the garage, trees and bushes wrapped, pathway and railing lights, and custom colors.</p>
       <p>Then we look at your actual house and tell you where in the range it lands. Not a rate multiplied by a measurement — one number for the job in front of us.</p>
 
       <h2>So what decides where my house lands?</h2>
@@ -336,7 +336,7 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
         <li><strong>How much roofline you want lit.</strong> More feet is more time and more material. This part really is linear, which is the grain of truth inside the per-foot question.</li>
         <li><strong>How many stories.</strong> Height changes the ladder work, the safety setup, and how many people have to be on the job at once.</li>
         <li><strong>How much beyond the roof.</strong> Wrapping a mature tree properly is slow, careful work. So are pathway runs and railings. This is most of the difference between the two packages.</li>
-        <li><strong>Design complexity.</strong> One warm-white run is simple. Alternating colours, a custom mix, or a pattern that has to line up across two roof planes takes planning and more cutting.</li>
+        <li><strong>Design complexity.</strong> One warm-white run is simple. Alternating colors, a custom mix, or a pattern that has to line up across two roof planes takes planning and more cutting.</li>
         <li><strong>Anything unusual.</strong> Tile roof, steep pitch, no safe ladder footing, power a long way from where the lights go.</li>
       </ul>
 
@@ -359,7 +359,7 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
   <div class="quote__head">
     <h2>Get your quote</h2>
     <p class="quote__sub">
-      Name and phone is enough to start. City and storeys make the number tighter. Most quotes come back the same day.
+      Name and phone is enough to start. City and stories make the number tighter. Most quotes come back the same day.
     </p>
   </div>
 
@@ -386,7 +386,10 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
           Mobile number <span class="field__req" aria-hidden="true">*</span>
           <span class="field__hint">We text back — no call unless you ask for one.</span>
         </span>
+        
         <input class="input" id="q-phone" name="phone" type="tel" required
+               pattern="\s*(\+?1[\s.\-]?)?\(?\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}\s*"
+               title="A 10-digit US phone number — for example (949) 295-2090"
                autocomplete="tel" inputmode="tel" placeholder="(949) 555-0123">
       </label>
     </div>
@@ -483,7 +486,7 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
       <label class="field" for="q-notes">
         <span class="field__label">Anything else</span>
         <textarea class="textarea" id="q-notes" name="notes" rows="4"
-                  placeholder="Colours you want, a date you have in mind, anything unusual about the roof."></textarea>
+                  placeholder="Colors you want, a date you have in mind, anything unusual about the roof."></textarea>
       </label>
     </details>
 

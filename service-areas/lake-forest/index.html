@@ -261,7 +261,7 @@
       </a>
       
       <a class="btn btn--primary header-cta header-cta--quote" href="#quote" data-cta="header-quote">
-        <span class="btn__label btn__label--long">Get a quote</span><span class="btn__label btn__label--short" aria-hidden="true">Quote</span><span class="sr-only"> — jump to the quote form</span>
+        <span class="btn__label btn__label--long">Get my quote</span><span class="btn__label btn__label--short" aria-hidden="true">Quote</span><span class="sr-only"> — jump to the quote form</span>
       </a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-panel" hidden>
         <span class="sr-only">Menu</span>
@@ -366,7 +366,7 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
     Foothill Ranch, Portola Hills, Baker Ranch, Serrano Summit &mdash; come with associations and design
     guidelines. A lot of the older Lake Forest streets are not in an association at all.</p>
     <p>If you are in one, many associations around here publish lighting guidelines: the dates a display
-    may be up, the colours, whether a timer is required. We will not pretend to know yours without reading
+    may be up, the colors, whether a timer is required. We will not pretend to know yours without reading
     it. Send us what it says and we design inside it. If you are not in one, then the only rules are the
     ones you set.</p>
 
@@ -484,7 +484,7 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
             <li>Entry and garage lit</li>
             <li>Trees and bushes wrapped</li>
             <li>Pathway and railing lights</li>
-            <li>Custom colours, and a wreath if you want one</li>
+            <li>Custom colors, and a wreath if you want one</li>
           </ul>
         </div>
         <p style="margin-top:var(--s-4)">
@@ -536,7 +536,7 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
   <div class="quote__head">
     <h2>Get your quote</h2>
     <p class="quote__sub">
-      Name and phone is enough to start. City and storeys make the number tighter. Most quotes come back the same day.
+      Name and phone is enough to start. City and stories make the number tighter. Most quotes come back the same day.
     </p>
   </div>
 
@@ -563,7 +563,10 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
           Mobile number <span class="field__req" aria-hidden="true">*</span>
           <span class="field__hint">We text back — no call unless you ask for one.</span>
         </span>
+        
         <input class="input" id="q-phone" name="phone" type="tel" required
+               pattern="\s*(\+?1[\s.\-]?)?\(?\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}\s*"
+               title="A 10-digit US phone number — for example (949) 295-2090"
                autocomplete="tel" inputmode="tel" placeholder="(949) 555-0123">
       </label>
     </div>
@@ -660,7 +663,7 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
       <label class="field" for="q-notes">
         <span class="field__label">Anything else</span>
         <textarea class="textarea" id="q-notes" name="notes" rows="4"
-                  placeholder="Colours you want, a date you have in mind, anything unusual about the roof."></textarea>
+                  placeholder="Colors you want, a date you have in mind, anything unusual about the roof."></textarea>
       </label>
     </details>
 

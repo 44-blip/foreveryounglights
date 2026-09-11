@@ -789,9 +789,12 @@ h4, .h4 { font-family: var(--font-text); font-size: var(--step-0); font-weight: 
 /* Secondary "more detail" block: a plain <details>, works with JS off */
 .quote__more { margin-top: var(--s-5); border-top: 1px solid var(--ink-line); padding-top: var(--s-4); }
 .paper .quote__more { border-top-color: var(--paper-line); }
+/* AUD-06: this measured 23px tall at 768px and up — 1px under the 24px floor in
+   WCAG 2.5.8 Target Size (Minimum). --s-2 is the existing scale token; nothing else moves. */
 .quote__more > summary {
   cursor: pointer; font-weight: 700; font-size: var(--step--1);
   color: var(--glow-soft); list-style: none; display: inline-flex; gap: .5em; align-items: center;
+  padding-block: var(--s-2);
 }
 .paper .quote__more > summary { color: var(--glow-soft); }
 .quote__more > summary::-webkit-details-marker { display: none; }
@@ -894,6 +897,12 @@ h4, .h4 { font-family: var(--font-text); font-size: var(--step-0); font-weight: 
    The hidden state is keyed on `.js-motion`, set by a 1-line inline script in
    <head> that removes itself again after 1.8s if site.js never reports in. So:
    JS off -> nothing is ever hidden. JS broken -> the page un-hides itself.
+
+   AUD-00 (found 2026-09-11, live for ~3 hours): the selector below is duplicated
+   in site.js as REVEAL_SELECTOR and the two MUST stay character-identical. When
+   they drifted apart the home page quote form was hidden by this rule and never
+   revealed by that loop, so the primary lead path rendered blank. If you change
+   this selector, change that one in the same commit.
    -------------------------------------------------------------------------- */
 .js-motion main > .band:not(:first-of-type) > .wrap > * {
   opacity: 0;

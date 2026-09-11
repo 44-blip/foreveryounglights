@@ -69,13 +69,15 @@
     if (root.className.indexOf("js-motion") === -1) return;
     root.setAttribute("data-reveal-ready", "");
 
-    var bands = document.querySelectorAll("main > .band");
-    var targets = [];
-    for (var b = 1; b < bands.length; b++) {            // band 0 = hero, never moves
-      var wrap = bands[b].querySelector(":scope > .wrap");
-      if (!wrap) continue;
-      for (var c = 0; c < wrap.children.length; c++) targets.push(wrap.children[c]);
-    }
+    // ONE selector, character-identical to the rule in site.css that hides these
+    // elements. AUD-00: when the two disagreed, the home page quote form stayed at
+    // opacity 0 and the primary lead path was dead for anyone with JS on. The CSS
+    // counted <section> siblings (the home hero is <section class="hero">, not a
+    // .band, so the quote band was "not first of type" and got hidden); this loop
+    // counted .band elements and skipped index 0, which on that page WAS the quote
+    // band. Never re-derive this list by index — keep the one string.
+    var REVEAL_SELECTOR = "main > .band:not(:first-of-type) > .wrap > *";
+    var targets = [].slice.call(document.querySelectorAll(REVEAL_SELECTOR));
     if (!targets.length) return;
 
     function show(el, instant) {
