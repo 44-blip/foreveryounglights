@@ -446,6 +446,14 @@ h1 em, h2 em { font-style: normal; color: inherit; }
 .nav-panel { background: var(--night); color: var(--paper);
   border-bottom: 3px solid var(--berry); padding: var(--s-4) 0 var(--s-5); }
 .nav-panel[hidden] { display: none; }
+/* CLS FIX (found 2026-09-11 by the SEO audit, measured 0.55 on mobile — Google's
+   limit is 0.1). The panel ships open so it works with JS off, and site.js used to
+   hide it on DOMContentLoaded — which shoved <main> up ~500px after first paint on
+   every page. `.js-motion` is set by the inline <head> script BEFORE paint and is
+   removed again after 1.8s if site.js never reports in, so JS-off still gets the
+   open menu; it just never flashes for anyone else. */
+.js-motion .nav-panel { display: none; }
+.js-motion .nav-panel.is-open { display: block; }
 .nav-panel .nav__list { flex-direction: column; align-items: stretch; gap: 0; }
 .nav-panel .nav__link {
   padding: .85em var(--s-2); font-size: var(--step-0); color: var(--paper);
