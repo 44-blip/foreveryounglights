@@ -482,12 +482,22 @@ h1 em, h2 em { font-style: normal; color: inherit; }
 /* --------------------------------------------------------------------------
    8. PRINTED OBJECTS — cards are label panels, not floating boxes.
    -------------------------------------------------------------------------- */
+/* A card is a column, and whatever sits last is pinned to the bottom edge. Without
+   this the "Christmas lights in <city>" link floated wherever the blurb happened to
+   end, so no two links in a row lined up — the thing that read as unfinished. */
 .card {
   background: var(--stock); color: var(--night);
   border: 2px solid var(--night);
   padding: var(--s-5);
   position: relative;
+  display: flex; flex-direction: column; gap: var(--s-3);
+  min-width: 0;
 }
+.card > .card__foot { margin-top: auto; padding-top: var(--s-4); }
+/* Long city names were breaking "Christmas lights in Rancho Santa Margarita"
+   across two lines mid-phrase. Keep the name whole and let the line break before it. */
+.card__foot .linkish { display: inline; }
+.card__foot { text-wrap: pretty; }
 .card, .card * { --ink: var(--night); --ink-dim: #4B5563;
   --on-field: var(--night); --on-field-dim: #4B5563; }
 .card .note { color: #4B5563; }
@@ -524,10 +534,15 @@ h1 em, h2 em { font-style: normal; color: inherit; }
   letter-spacing: .1em; text-transform: uppercase;
   border: 2px solid currentColor; padding: var(--s-2) var(--s-4); }
 
-.chips { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+/* 35 city chips wrapping by width ran 71px to 235px and broke 7/9/8/9/2 per row —
+   ragged, and worst on the two-word names. A grid gives every city the same box. */
+.chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  grid-auto-rows: 1fr; gap: var(--s-2); }
+@media (max-width: 419px) { .chips { grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); } }
 .chip {
-  display: inline-flex; align-items: center; min-height: 44px;
-  padding: .35em 1em; border: 2px solid currentColor;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  min-height: 48px; hyphens: none;
+  padding: .35em .75em; border: 2px solid currentColor;
   font-family: var(--mono); font-size: var(--step--1); font-weight: 700;
   letter-spacing: .06em; text-transform: uppercase;
   text-decoration: none; color: inherit;
@@ -614,19 +629,23 @@ figure figcaption {
 .quote__sub { margin-top: var(--s-3); font-family: var(--sans); font-size: var(--step--1);
   font-weight: 400; text-transform: none; letter-spacing: normal; line-height: 1.5; color: #4B5563; }
 .quote form { margin-top: var(--s-5); display: grid; gap: var(--s-4); }
-.field { display: grid; gap: var(--s-2); }
+/* A field is label, box, hint — in that order, and the box never stretches to fill
+   leftover space. Before this the name box rendered 80px tall beside a 54px phone box
+   because the phone's label was two lines taller. Measured on the live page. */
+.field { display: grid; gap: var(--s-2); align-content: start; }
+.fieldrow--2 { align-items: start; }
 .field__label { font-family: var(--mono); font-size: var(--step--2); font-weight: 700;
   letter-spacing: .12em; text-transform: uppercase; }
 .field__req { color: var(--berry); }
 .field__hint { display: block; font-family: var(--sans); font-size: var(--step--1);
-  font-weight: 400; letter-spacing: 0; text-transform: none; color: #4B5563; margin-top: var(--s-1); }
+  font-weight: 400; letter-spacing: 0; text-transform: none; color: #4B5563; line-height: 1.4; }
 .input, .select, .textarea {
-  width: 100%; min-height: 48px; padding: .6em .75em;
+  width: 100%; height: 52px; padding: .6em .75em;
   background: var(--stock); color: var(--night);
   border: 2px solid var(--night);
   transition: border-color var(--dur-ui) var(--ease-house);
 }
-.textarea { min-height: 6rem; resize: vertical; }
+.textarea { height: auto; min-height: 6rem; resize: vertical; }
 .input::placeholder, .textarea::placeholder { color: #5B6470; }
 .input:hover, .select:hover, .textarea:hover { border-color: var(--berry); }
 .fieldrow { display: grid; gap: var(--s-4); }

@@ -500,13 +500,13 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
       <label class="field" for="q-phone">
         <span class="field__label">
           Mobile number <span class="field__req" aria-hidden="true">*</span>
-          <span class="field__hint">We text back — no call unless you ask for one.</span>
         </span>
         
         <input class="input" id="q-phone" name="phone" type="tel" required
                pattern="\s*(\+?1[\s.\-]?)?\(?\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}\s*"
                title="A 10-digit US phone number — for example (949) 295-2090"
                autocomplete="tel" inputmode="tel" placeholder="(949) 555-0123">
+        <span class="field__hint">We text back — no call unless you ask for one.</span>
       </label>
     </div>
 
@@ -565,10 +565,7 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
         </label>
 
         <label class="field" for="q-package">
-          <span class="field__label">
-            Package
-            <span class="field__hint">Set for you if you arrived from a package button.</span>
-          </span>
+          <span class="field__label">Package</span>
           <select class="select" id="q-package" name="package">
             <option value="" disabled selected>Not sure yet — help me choose</option>
             <option value="roofline">Basic Roofline — $400–$800</option>
@@ -592,11 +589,9 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
       </fieldset>
 
       <label class="field" for="q-hoa">
-        <span class="field__label">
-          HOA
-          <span class="field__hint">If your community has lighting rules, name it and we design within them.</span>
-        </span>
+        <span class="field__label">HOA</span>
         <input class="input" id="q-hoa" name="hoa" type="text" placeholder="e.g. Nellie Gail Ranch">
+        <span class="field__hint">If your community has lighting rules, name it and we design within them.</span>
       </label>
 
       <label class="field" for="q-notes">
