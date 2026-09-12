@@ -374,6 +374,26 @@ h1 em, h2 em { font-style: normal; color: inherit; }
 .btn--outline { --btn-bg: transparent; --btn-ink: var(--ink); --btn-edge: currentColor; }
 .btn--outline:hover, .btn--outline:active { --btn-bg: var(--night); --btn-ink: var(--paper); }
 
+/* THE RED-ON-RED BUG (found 2026-09-11 by the SEO visual audit, on 36 pages).
+   On the service-areas hub and every city page the hero has no pine panel, so the
+   berry primary button sat directly on the berry field — same fill, same border,
+   only the white label visible. On that field the primary takes paper stock. */
+.hero .btn--primary {
+  --btn-bg: #FFFFFF; --btn-ink: var(--berry); --btn-edge: #FFFFFF;
+}
+.hero .btn--primary:hover, .hero .btn--primary:active {
+  --btn-bg: var(--paper); --btn-ink: var(--berry-ink); --btn-edge: var(--paper);
+}
+/* Inside the pine panel, a white card or the order panel, red reads fine — restore it.
+   These come after, so they win on equal specificity. */
+.hero__panel .btn--primary, .hero .quote .btn--primary, .hero .card .btn--primary {
+  --btn-bg: var(--berry); --btn-ink: #FFFFFF; --btn-edge: var(--berry);
+}
+.hero__panel .btn--primary:hover, .hero .quote .btn--primary:hover,
+.hero .card .btn--primary:hover {
+  --btn-bg: var(--berry-ink); --btn-edge: var(--berry-ink);
+}
+
 /* On the berry field and the pine panel the controls invert to paper. */
 .hero .btn--ghost, .band--night .btn--ghost {
   --btn-bg: transparent; --btn-ink: #FFFFFF; --btn-edge: #FFFFFF;
