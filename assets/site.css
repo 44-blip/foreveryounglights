@@ -52,7 +52,9 @@
 
   /* --- roles on the pine panel and the berry field --- */
   --on-field:     #FFFFFF;
-  --on-field-dim: rgb(255 255 255 / .86);
+  /* Measured: at .86 this composites to rgb(222,237,227) over pine = 4.15:1,
+     which fails AA for the 15px price line. Solid paper, no alpha. */
+  --on-field-dim: #F3F4F6;
 
   /* --- roles on night --- */
   --on-night:     var(--paper);
@@ -174,9 +176,10 @@ h3, .h3 {
   font-family: var(--sans); font-weight: 700; font-size: var(--step-1);
   line-height: 1.22; letter-spacing: -0.01em;
 }
-h1 em, h2 em { font-style: normal; color: var(--berry); }
-.hero h1 em, .band--night h1 em, .band--night h2 em,
-.band--night-2 h1 em, .band--night-2 h2 em { color: #FDE68A; }
+/* Rule 2 of this world: hierarchy by scale alone, colour is a role and never
+   emphasis. An <em> inside a slab headline gets no second ink — the headline is
+   one voice. (The finish review caught #FDE68A here: off-palette AND emphasis.) */
+h1 em, h2 em { font-style: normal; color: inherit; }
 
 .lede { font-size: var(--step-1); line-height: 1.45; max-width: var(--measure); }
 .note { font-size: var(--step--1); color: var(--ink-dim); }
@@ -213,7 +216,7 @@ h1 em, h2 em { font-style: normal; color: var(--berry); }
 .prose a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: .18em;
   transition: color var(--dur-ui) var(--ease-house); }
 .prose a:hover { color: var(--berry); }
-.band--night .prose a:hover { color: #FDE68A; }
+.band--night .prose a:hover { color: #FFFFFF; }
 .band--night-2 .prose a:hover { color: var(--glow); }
 .prose a.btn { color: var(--btn-ink); text-decoration: none; }
 .prose a.chip { text-decoration: none; }
@@ -227,7 +230,7 @@ h1 em, h2 em { font-style: normal; color: var(--berry); }
 }
 .linkish:hover { color: var(--berry); }
 .band--night .linkish, .band--night-2 .linkish, .hero .linkish { border-bottom-color: currentColor; }
-.band--night .linkish:hover { color: #FDE68A; }
+.band--night .linkish:hover { color: #FFFFFF; }
 .band--night-2 .linkish:hover { color: var(--glow); }
 
 /* --------------------------------------------------------------------------
@@ -304,9 +307,12 @@ h1 em, h2 em { font-style: normal; color: var(--berry); }
      scale is wrong — fix the scale, not the word. */
   overflow-wrap: normal; word-break: keep-all; hyphens: none;
 }
-.hero .lede { color: var(--on-field-dim); margin-top: var(--s-5); max-width: 40ch; }
-.hero__price { margin-top: var(--s-5); font-family: var(--mono); font-size: var(--step--1);
-  font-weight: 700; letter-spacing: .02em; color: var(--on-field-dim); }
+/* #F3F4F6 on berry measures 4.39:1 — under AA. On the berry field the lede takes
+   solid paper white (4.83:1). The dim ink is for the pine panel only. */
+.hero .lede { color: #FFFFFF; margin-top: var(--s-5); max-width: 40ch; }
+.hero__panel .lede { color: var(--on-field-dim); }
+.hero__price { margin-top: var(--s-5); font-family: var(--mono); font-size: var(--step-0);
+  font-weight: 700; letter-spacing: .02em; color: #FFFFFF; }
 /* The two numbers are the loudest thing after the headline, so they get SIZE.
    Never a second colour — colour is a role in this world, not emphasis. */
 .hero__price strong { color: #FFFFFF; font-size: var(--step-0); }
@@ -501,6 +507,11 @@ h1 em, h2 em { font-style: normal; color: var(--berry); }
 
 /* Price bands: two flat printed rows. Scale carries the emphasis. */
 .pricebands { display: grid; gap: 0; border: 2px solid currentColor; margin-top: var(--s-5); }
+/* In the label panel the two numbers are the loudest thing after the headline. */
+.hero__panel .pricebands { border-color: #FFFFFF; }
+.hero__panel .priceband + .priceband { border-top-color: #FFFFFF; }
+.hero__panel .priceband__value { font-size: var(--step-2); }
+.hero__panel .priceband__note { color: var(--on-field-dim); }
 .priceband { display: grid; gap: var(--s-1); padding: var(--s-4) var(--s-5); }
 .priceband + .priceband { border-top: 2px solid currentColor; }
 .priceband__label { font-family: var(--mono); font-size: var(--step--2); font-weight: 700;
@@ -569,7 +580,6 @@ figure figcaption {
   font-family: var(--mono); font-size: var(--step--2); letter-spacing: .1em; text-transform: uppercase; }
 .voice__who strong { font-weight: 700; }
 .voice__city::before { content: "\00B7"; margin-right: .5em; }
-.stars { display: none; }
 
 .sister { border: 2px solid currentColor; padding: var(--s-5); font-size: var(--step--1); }
 .sister strong { font-weight: 700; }
