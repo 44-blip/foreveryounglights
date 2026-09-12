@@ -34,17 +34,7 @@
 <link rel="stylesheet" href="/assets/site.css">
 
 <script>(function(d){d.className+=(d.className?" ":"")+"js-motion";setTimeout(function(){if(!d.hasAttribute("data-reveal-ready"))d.className=d.className.replace(/\s*js-motion/,"");},1800);})(document.documentElement);</script>
-<style>
-  /* Spacing for the four lines above the fold. The photo needs no rule at all:
-     it keeps its own 4:5 crop on a phone and its 16:9 crop from 768px, both
-     real exports in the manifest, and only one is ever downloaded. Everything
-     else on this page is a site.css class. */
-  .hero__eyebrow { margin-bottom: var(--s-3); }
-  .hero__price { font-size: var(--step-1); line-height: 1.45; margin-top: var(--s-4); }
-  .hero__price strong { color: var(--glow); white-space: nowrap; }
-  .hero__season { margin-top: var(--s-5); }
-  .hero__note { margin-top: var(--s-3); max-width: 40ch; }
-</style>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -275,7 +265,7 @@
 <section class="hero">
   <div class="wrap hero__grid">
 
-    <div>
+<div class="hero__panel">
       <p class="eyebrow hero__eyebrow">South Orange County · since 2022</p>
 
       <h1 class="hero__title">Christmas Light Installation in <em>Orange County</em></h1>
@@ -307,23 +297,19 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
         Text two photos of the front of your house and we quote off the photos —
         no site visit needed for most homes.
       </p>
-    </div>
 
-    <div class="hero__photo">
-      <picture>
-<source type="image/avif" srcset="/assets/img/hero-wide-960.avif 960w, /assets/img/hero-wide-1440.avif 1440w, /assets/img/hero-wide-1920.avif 1920w" sizes="(min-width: 1200px) 640px, (min-width: 900px) 50vw, 100vw" width="1920" height="1080">
-<source type="image/webp" srcset="/assets/img/hero-wide-960.webp 960w, /assets/img/hero-wide-1440.webp 1440w, /assets/img/hero-wide-1920.webp 1920w" sizes="(min-width: 1200px) 640px, (min-width: 900px) 50vw, 100vw" width="1920" height="1080">
+<div class="hero__photo">
+        <picture>
+<source type="image/avif" srcset="/assets/img/hero-wide-960.avif 960w, /assets/img/hero-wide-1440.avif 1440w, /assets/img/hero-wide-1920.avif 1920w" sizes="(min-width: 1200px) 560px, (min-width: 960px) 45vw, 100vw" width="1920" height="1080">
+<source type="image/webp" srcset="/assets/img/hero-wide-960.webp 960w, /assets/img/hero-wide-1440.webp 1440w, /assets/img/hero-wide-1920.webp 1920w" sizes="(min-width: 1200px) 560px, (min-width: 960px) 45vw, 100vw" width="1920" height="1080">
 <img src="/assets/img/hero-wide-1920.webp" width="1920" height="1080" alt="Front of a home at night lit end to end: multicolor C9 lights along the roofline and garage, a warm-white wrapped tree, and candy-cane wrapped palms." loading="eager" decoding="sync" fetchpriority="high">
 </picture>
-      <p class="hero__badge">Premium Full Front</p>
+        <p class="hero__badge">Premium Full Front</p>
+      </div>
     </div>
 
-  </div>
-</section>
-
-<section class="band band--paper band--tight" id="get-a-quote">
-  <div class="wrap wrap--narrow paper">
-    
+<div id="get-a-quote">
+      
 <div class="quote" id="quote">
   <div class="quote__head">
     <h2>Get your quote</h2>
@@ -464,6 +450,8 @@ Call now<span class="sr-only"> — (949) 295-2090</span>
     </p>
   </form>
 </div>
+
+    </div>
 
   </div>
 </section>
