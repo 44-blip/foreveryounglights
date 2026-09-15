@@ -8,7 +8,7 @@
       "ratio": 0.8001,
       "width": 1229,
       "height": 1536,
-      "alt": "Front of a two-story home at night: multicolor C9 lights along the roofline, entry and garage, with two palm trees wrapped candy-cane style in red and white.",
+      "alt": "Christmas light installation on a two-story home at night: multicolor C9 lights along the roofline, entry and garage, with two palm trees wrapped candy-cane style in red and white.",
       "caption": "Premium Full Front package",
       "note": "Mobile / first-screen hero. Patched export (house number removed) per PHOTO-INDEX.md.",
       "avif": [
@@ -61,7 +61,7 @@
       "ratio": 1.7778,
       "width": 1920,
       "height": 1080,
-      "alt": "Front of a home at night lit end to end: multicolor C9 lights along the roofline and garage, a warm-white wrapped tree, and candy-cane wrapped palms.",
+      "alt": "A finished Christmas light installation at night, lit end to end: multicolor C9 lights along the roofline and garage, a warm-white wrapped tree, and candy-cane wrapped palms.",
       "caption": "Premium Full Front package",
       "note": "Desktop hero, 768px and up. Same photo as `hero`, wide crop.",
       "avif": [
@@ -167,7 +167,7 @@
       "ratio": 1.5004,
       "width": 960,
       "height": 640,
-      "alt": "Two-story home with a multicolor roofline and lit entry, reflected in a wet driveway after rain.",
+      "alt": "Installed Christmas lights on a two-story home: multicolor roofline and lit entry, reflected in a wet driveway after rain.",
       "caption": "Premium Full Front package",
       "note": null,
       "avif": [
@@ -220,7 +220,7 @@
       "ratio": 1.5,
       "width": 960,
       "height": 640,
-      "alt": "Tudor-style home outlined in warm-white lights along every gable and around the arched entry.",
+      "alt": "Tudor-style home outlined in warm-white Christmas lights along every gable and around the arched entry.",
       "caption": "Premium Full Front package",
       "note": null,
       "avif": [
@@ -273,7 +273,7 @@
       "ratio": 1.5004,
       "width": 960,
       "height": 640,
-      "alt": "Single-story home with a red and warm-white roofline above a triple garage, hedges along the driveway wrapped in multicolor lights.",
+      "alt": "Christmas light installation on a single-story home: a red and warm-white roofline above a triple garage, hedges along the driveway wrapped in multicolor lights.",
       "caption": "Premium Full Front package",
       "note": null,
       "avif": [
@@ -538,7 +538,7 @@
       "ratio": 1.5004,
       "width": 960,
       "height": 640,
-      "alt": "Warm-white C9 lights running the full roofline and balcony of a three-story home.",
+      "alt": "Roofline Christmas light installation: warm-white C9 lights running the full roofline and balcony of a three-story home.",
       "caption": "Basic Roofline package",
       "note": null,
       "avif": [
@@ -591,7 +591,7 @@
       "ratio": 1.5004,
       "width": 960,
       "height": 640,
-      "alt": "Modern single-story home with icicle lights along the eaves and a mature tree wrapped in warm white.",
+      "alt": "Modern single-story home with Christmas icicle lights along the eaves and a mature tree wrapped in warm white.",
       "caption": "Basic Roofline package \u00b7 tree wrapping add-on",
       "note": null,
       "avif": [
@@ -697,7 +697,7 @@
       "ratio": 1.5004,
       "width": 960,
       "height": 640,
-      "alt": "Two-story home outlined in warm-white lights along the roofline and gable, with lit snowflake decorations on the wall.",
+      "alt": "Two-story home outlined in warm-white Christmas lights along the roofline and gable, with lit snowflake decorations on the wall.",
       "caption": "Basic Roofline package",
       "note": null,
       "avif": [
@@ -750,8 +750,8 @@
       "ratio": 1.5004,
       "width": 960,
       "height": 640,
-      "alt": "Daytime view of an entry courtyard with both columns spiral-wrapped in warm-white lights.",
-      "caption": "Entry columns \u2014 daytime, showing the wrap",
+      "alt": "An entry courtyard at dusk with both columns spiral-wrapped in warm-white Christmas lights, under a lit tile roofline.",
+      "caption": "Entry columns \u2014 the spiral wrap, lit at dusk",
       "note": null,
       "avif": [
         {
@@ -803,7 +803,7 @@
       "ratio": 1.5,
       "width": 960,
       "height": 640,
-      "alt": "Single-story home with a warm-white roofline over the garage and entry at dusk.",
+      "alt": "Single-story home with a warm-white Christmas roofline over the garage and entry at dusk.",
       "caption": "Basic Roofline package",
       "note": null,
       "avif": [
@@ -1033,6 +1033,64 @@
     "w": 1200,
     "h": 630,
     "source_photo": "2025-11-17-holiday-lighting-roofline-lights-wrap--IMG_0992.jpg"
+  },
+  "og_slots": {
+    "hero-wide": {
+      "file": "/assets/img/hero-wide.jpg",
+      "bytes": 145186,
+      "w": 1200,
+      "h": 630,
+      "source_photo": "2025-11-17-holiday-lighting-roofline-lights-wrap--IMG_0992.jpg"
+    },
+    "proof-1": {
+      "file": "/assets/img/proof-1.jpg",
+      "bytes": 152827,
+      "w": 1200,
+      "h": 630,
+      "source_photo": "2025-11-17-holiday-lighting-roofline-lights-wrap--IMG_1030.jpg"
+    },
+    "proof-2": {
+      "file": "/assets/img/proof-2.jpg",
+      "bytes": 109599,
+      "w": 1200,
+      "h": 630,
+      "source_photo": "2025-11-24-tudor-warm-white-roofline-tree-wrap-e--att.74PPjyJkx2w0LKft8oPWgQolbUIhaaOKXqhgt0ZWADE.jpg"
+    },
+    "gallery-01": {
+      "file": "/assets/img/gallery-01.jpg",
+      "bytes": 169928,
+      "w": 1200,
+      "h": 630,
+      "source_photo": "2025-11-11-multicolor-roofline-tree-two-story-em--att.wdKfrUDi3CjytX-vBDungC_310cRhs6C74Ad8JpJJf4.jpg"
+    },
+    "gallery-05": {
+      "file": "/assets/img/gallery-05.jpg",
+      "bytes": 144100,
+      "w": 1200,
+      "h": 630,
+      "source_photo": "2024-12-04-holiday-lighting-roofline-lights-wrap--IMG_0938.jpg"
+    },
+    "gallery-08": {
+      "file": "/assets/img/gallery-08.jpg",
+      "bytes": 137081,
+      "w": 1200,
+      "h": 630,
+      "source_photo": "2023-11-misc--63CE87B0-9E90-4ABF-9B00-4090EAC6EA68.jpg"
+    },
+    "gallery-09": {
+      "file": "/assets/img/gallery-09.jpg",
+      "bytes": 117726,
+      "w": 1200,
+      "h": 630,
+      "source_photo": "2025-11-17-holiday-lighting-roofline-lights-wrap--IMG_1003.jpg"
+    },
+    "permanent-1": {
+      "file": "/assets/img/permanent-1.jpg",
+      "bytes": 109449,
+      "w": 1200,
+      "h": 630,
+      "source_photo": "2025-11-28-permanent-soffit-lights-purple-green---IMG_1193.jpg"
+    }
   },
   "apple_touch_icon": {
     "file": "/apple-touch-icon.png",
