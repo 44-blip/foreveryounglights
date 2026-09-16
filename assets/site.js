@@ -116,6 +116,67 @@
       io.disconnect();
       observed.forEach(function (el) { show(el, true); });
     }, 1500);
+
+    // ---- Recovery sweep (new-audit item 6) --------------------------------
+    // The observer above only shows an element on `isIntersecting`. Per the W3C
+    // update-intersection-observations algorithm, an element carried from below the
+    // viewport to above it between ticks can keep its threshold index and its
+    // isIntersecting value — so NO entry is queued and the callback never runs for
+    // it. It then stays at opacity 0 forever. The 1500 ms failsafe above does not
+    // cover this: it only fires when `delivered` is still false, i.e. when the
+    // observer never fired at all, and in a fast scroll it fires for other elements.
+    //
+    // So this recovery never waits for an observer callback. It reads live geometry,
+    // driven by `scroll` and `resize` as the fast path, a 500 ms interval as the
+    // guarantee (some renderers coalesce or drop scroll events — measured), and one
+    // call at wire-up for a page that arrives already scrolled (bfcache, #fragment,
+    // reload). The interval is what makes this independent of ANY event delivery.
+    if (observed.length) (function () {
+      var pending = observed.slice();          // own array; `observed` stays intact
+                                               // for the failsafe above.
+      function sweep() {
+        for (var i = pending.length - 1; i >= 0; i--) {
+          var el = pending[i];
+          // Already revealed — by the observer, or above the fold at load. Drop it
+          // from the queue and DO NOT touch it: it may be mid-animation right now,
+          // and re-showing it would interrupt a normal slow-scroll reveal.
+          if (el.classList.contains("is-in")) { pending.splice(i, 1); continue; }
+          // Carried past the top of the viewport. It CAN intersect again if the
+          // visitor scrolls back up — but nothing guarantees a callback before then,
+          // and by then it is already shown, so showing it now is safe either way.
+          // Instant, because animating something already scrolled past is the bug.
+          if (el.getBoundingClientRect().bottom <= 0) {
+            show(el, true);
+            io.unobserve(el);
+            pending.splice(i, 1);
+          }
+        }
+        if (!pending.length) stop();
+      }
+      // Throttled by timestamp rather than requestAnimationFrame on purpose: rAF is
+      // paused in a backgrounded tab and is coalesced away by some renderers, and the
+      // whole point of this block is to not depend on being called back.
+      var last = 0;
+      function onMove() {
+        var now = Date.now();
+        if (now - last < 100) return;
+        last = now;
+        sweep();
+      }
+      // The backstop. Scroll events are the fast path, but a renderer that coalesces
+      // or drops them would take the fix down with it — so a cheap interval also
+      // sweeps. It stops the moment `pending` empties, which on a normal read-through
+      // is within the first screenful or two.
+      var beat = setInterval(sweep, 500);
+      function stop() {
+        clearInterval(beat);
+        window.removeEventListener("scroll", onMove);
+        window.removeEventListener("resize", onMove);
+      }
+      window.addEventListener("scroll", onMove, { passive: true });
+      window.addEventListener("resize", onMove);
+      sweep();
+    })();
   })();
 
   /* -- 4. season line ------------------------------------------------------ */
