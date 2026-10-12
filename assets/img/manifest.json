@@ -534,7 +534,7 @@
     },
     "gallery-05": {
       "slot": "gallery-05",
-      "source_photo": "2024-12-04-holiday-lighting-roofline-lights-wrap--IMG_0938.jpg",
+      "source_photo": "2024-12-04-holiday-lighting-roofline-lights-wrap--IMG_0938-plate-number-blurred.jpg",
       "ratio": 1.5004,
       "width": 960,
       "height": 640,
@@ -546,19 +546,19 @@
           "w": 480,
           "h": 320,
           "file": "gallery-05-480.avif",
-          "bytes": 16480
+          "bytes": 16343
         },
         {
           "w": 720,
           "h": 480,
           "file": "gallery-05-720.avif",
-          "bytes": 31390
+          "bytes": 30929
         },
         {
           "w": 960,
           "h": 640,
           "file": "gallery-05-960.avif",
-          "bytes": 48496
+          "bytes": 47924
         }
       ],
       "webp": [
@@ -566,19 +566,19 @@
           "w": 480,
           "h": 320,
           "file": "gallery-05-480.webp",
-          "bytes": 18232
+          "bytes": 18056
         },
         {
           "w": 720,
           "h": 480,
           "file": "gallery-05-720.webp",
-          "bytes": 35874
+          "bytes": 35342
         },
         {
           "w": 960,
           "h": 640,
           "file": "gallery-05-960.webp",
-          "bytes": 57168
+          "bytes": 56084
         }
       ],
       "srcset_avif": "/assets/img/gallery-05-480.avif 480w, /assets/img/gallery-05-720.avif 720w, /assets/img/gallery-05-960.avif 960w",
@@ -1065,10 +1065,10 @@
     },
     "gallery-05": {
       "file": "/assets/img/gallery-05.jpg",
-      "bytes": 144100,
+      "bytes": 143596,
       "w": 1200,
       "h": 630,
-      "source_photo": "2024-12-04-holiday-lighting-roofline-lights-wrap--IMG_0938.jpg"
+      "source_photo": "2024-12-04-holiday-lighting-roofline-lights-wrap--IMG_0938-plate-number-blurred.jpg"
     },
     "gallery-08": {
       "file": "/assets/img/gallery-08.jpg",
