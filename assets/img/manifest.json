@@ -269,7 +269,7 @@
     },
     "proof-3": {
       "slot": "proof-3",
-      "source_photo": "2025-11-28-holiday-lighting-roofline-lights-lit---IMG_1232.jpg",
+      "source_photo": "2025-11-28-holiday-lighting-roofline-lights-lit---IMG_1232-number-blurred.jpg",
       "ratio": 1.5004,
       "width": 960,
       "height": 640,
@@ -281,19 +281,19 @@
           "w": 480,
           "h": 320,
           "file": "proof-3-480.avif",
-          "bytes": 10555
+          "bytes": 10428
         },
         {
           "w": 720,
           "h": 480,
           "file": "proof-3-720.avif",
-          "bytes": 20034
+          "bytes": 19882
         },
         {
           "w": 960,
           "h": 640,
           "file": "proof-3-960.avif",
-          "bytes": 31200
+          "bytes": 30851
         }
       ],
       "webp": [
@@ -301,19 +301,19 @@
           "w": 480,
           "h": 320,
           "file": "proof-3-480.webp",
-          "bytes": 12220
+          "bytes": 12030
         },
         {
           "w": 720,
           "h": 480,
           "file": "proof-3-720.webp",
-          "bytes": 23074
+          "bytes": 22764
         },
         {
           "w": 960,
           "h": 640,
           "file": "proof-3-960.webp",
-          "bytes": 35880
+          "bytes": 35548
         }
       ],
       "srcset_avif": "/assets/img/proof-3-480.avif 480w, /assets/img/proof-3-720.avif 720w, /assets/img/proof-3-960.avif 960w",
@@ -428,7 +428,7 @@
     },
     "gallery-03": {
       "slot": "gallery-03",
-      "source_photo": "2025-11-28-holiday-lighting-roofline-lights-lit---IMG_1234.jpg",
+      "source_photo": "2025-11-28-holiday-lighting-roofline-lights-lit---IMG_1234-number-blurred.jpg",
       "ratio": 1.5004,
       "width": 960,
       "height": 640,
@@ -440,19 +440,19 @@
           "w": 480,
           "h": 320,
           "file": "gallery-03-480.avif",
-          "bytes": 9318
+          "bytes": 9324
         },
         {
           "w": 720,
           "h": 480,
           "file": "gallery-03-720.avif",
-          "bytes": 17253
+          "bytes": 17097
         },
         {
           "w": 960,
           "h": 640,
           "file": "gallery-03-960.avif",
-          "bytes": 26226
+          "bytes": 25722
         }
       ],
       "webp": [
@@ -460,19 +460,19 @@
           "w": 480,
           "h": 320,
           "file": "gallery-03-480.webp",
-          "bytes": 10922
+          "bytes": 10826
         },
         {
           "w": 720,
           "h": 480,
           "file": "gallery-03-720.webp",
-          "bytes": 20284
+          "bytes": 19936
         },
         {
           "w": 960,
           "h": 640,
           "file": "gallery-03-960.webp",
-          "bytes": 30830
+          "bytes": 30392
         }
       ],
       "srcset_avif": "/assets/img/gallery-03-480.avif 480w, /assets/img/gallery-03-720.avif 720w, /assets/img/gallery-03-960.avif 960w",
@@ -587,7 +587,7 @@
     },
     "gallery-06": {
       "slot": "gallery-06",
-      "source_photo": "2024-11-21-supply-run-roofline-lights--IMG_0772(1).jpg",
+      "source_photo": "2024-11-21-supply-run-roofline-lights--IMG_0772(1)-number-blurred.jpg",
       "ratio": 1.5004,
       "width": 960,
       "height": 640,
@@ -599,19 +599,19 @@
           "w": 480,
           "h": 320,
           "file": "gallery-06-480.avif",
-          "bytes": 16703
+          "bytes": 16559
         },
         {
           "w": 720,
           "h": 480,
           "file": "gallery-06-720.avif",
-          "bytes": 33728
+          "bytes": 33475
         },
         {
           "w": 960,
           "h": 640,
           "file": "gallery-06-960.avif",
-          "bytes": 54370
+          "bytes": 54162
         }
       ],
       "webp": [
@@ -619,19 +619,19 @@
           "w": 480,
           "h": 320,
           "file": "gallery-06-480.webp",
-          "bytes": 17528
+          "bytes": 17448
         },
         {
           "w": 720,
           "h": 480,
           "file": "gallery-06-720.webp",
-          "bytes": 36178
+          "bytes": 36180
         },
         {
           "w": 960,
           "h": 640,
           "file": "gallery-06-960.webp",
-          "bytes": 59090
+          "bytes": 59028
         }
       ],
       "srcset_avif": "/assets/img/gallery-06-480.avif 480w, /assets/img/gallery-06-720.avif 720w, /assets/img/gallery-06-960.avif 960w",
@@ -693,7 +693,7 @@
     },
     "gallery-08": {
       "slot": "gallery-08",
-      "source_photo": "2023-11-misc--63CE87B0-9E90-4ABF-9B00-4090EAC6EA68.jpg",
+      "source_photo": "2023-11-misc--63CE87B0-9E90-4ABF-9B00-4090EAC6EA68-number-blurred.jpg",
       "ratio": 1.5004,
       "width": 960,
       "height": 640,
@@ -705,19 +705,19 @@
           "w": 480,
           "h": 320,
           "file": "gallery-08-480.avif",
-          "bytes": 13595
+          "bytes": 13580
         },
         {
           "w": 720,
           "h": 480,
           "file": "gallery-08-720.avif",
-          "bytes": 26513
+          "bytes": 26385
         },
         {
           "w": 960,
           "h": 640,
           "file": "gallery-08-960.avif",
-          "bytes": 42173
+          "bytes": 42087
         }
       ],
       "webp": [
@@ -725,19 +725,19 @@
           "w": 480,
           "h": 320,
           "file": "gallery-08-480.webp",
-          "bytes": 15070
+          "bytes": 15092
         },
         {
           "w": 720,
           "h": 480,
           "file": "gallery-08-720.webp",
-          "bytes": 30554
+          "bytes": 30648
         },
         {
           "w": 960,
           "h": 640,
           "file": "gallery-08-960.webp",
-          "bytes": 48818
+          "bytes": 48620
         }
       ],
       "srcset_avif": "/assets/img/gallery-08-480.avif 480w, /assets/img/gallery-08-720.avif 720w, /assets/img/gallery-08-960.avif 960w",
@@ -1072,10 +1072,10 @@
     },
     "gallery-08": {
       "file": "/assets/img/gallery-08.jpg",
-      "bytes": 137081,
+      "bytes": 137973,
       "w": 1200,
       "h": 630,
-      "source_photo": "2023-11-misc--63CE87B0-9E90-4ABF-9B00-4090EAC6EA68.jpg"
+      "source_photo": "2023-11-misc--63CE87B0-9E90-4ABF-9B00-4090EAC6EA68-number-blurred.jpg"
     },
     "gallery-09": {
       "file": "/assets/img/gallery-09.jpg",
