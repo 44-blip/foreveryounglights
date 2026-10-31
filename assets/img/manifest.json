@@ -987,7 +987,7 @@
     },
     "about-1": {
       "slot": "about-1",
-      "source_photo": "2022-10-misc--IMG_1259.jpg",
+      "source_photo": "2022-10-misc--IMG_1259-nonumber.jpg",
       "ratio": 0.8,
       "width": 720,
       "height": 900,
@@ -999,13 +999,13 @@
           "w": 480,
           "h": 600,
           "file": "about-1-480.avif",
-          "bytes": 69659
+          "bytes": 68424
         },
         {
           "w": 720,
           "h": 900,
           "file": "about-1-720.avif",
-          "bytes": 139400
+          "bytes": 137892
         }
       ],
       "webp": [
@@ -1013,13 +1013,13 @@
           "w": 480,
           "h": 600,
           "file": "about-1-480.webp",
-          "bytes": 80622
+          "bytes": 78684
         },
         {
           "w": 720,
           "h": 900,
           "file": "about-1-720.webp",
-          "bytes": 158886
+          "bytes": 155968
         }
       ],
       "srcset_avif": "/assets/img/about-1-480.avif 480w, /assets/img/about-1-720.avif 720w",
