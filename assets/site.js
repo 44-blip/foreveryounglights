@@ -7,6 +7,7 @@
    3. Entrance reveal                (STEP 3: the site's only animation)
    4. Season line self-correction    (F-CONTENT-01: the built-in text is already right; this
                                       only fixes it if the page is served past its season)
+   5. Lead path + visit counts     (each quote request says how the visitor found us; Umami once UMAMI_ID is set)
 */
 (function () {
   "use strict";
@@ -195,4 +196,131 @@
   Array.prototype.forEach.call(document.querySelectorAll("[data-season-line]"), function (el) {
     if (el.textContent.trim() !== live) el.textContent = live;
   });
+
+  /* -- 5. lead path + visit counts ------------------------------------------ */
+  // Each quote request carries a short note of how the visitor found us and what they read.
+  // It goes into the form's EXISTING hidden "page" field at submit: the Netlify mirror keeps
+  // only fields its own deploy already knows, so a new field would be dropped without a word.
+  // First-party: the note sits in the visitor's browser and leaves it only inside the quote
+  // form they choose to send. Under Global Privacy Control or Do Not Track nothing is kept
+  // between visits and Umami never loads. Field names and counts only, never typed values.
+  (function () {
+    var UMAMI_ID = "";               // Umami website ID from Jason's account; "" = no outside script at all
+    var path = location.pathname, now = Date.now(), TTL = 30 * 864e5;
+    var optOut = navigator.globalPrivacyControl === true || navigator.doNotTrack === "1";
+    function store(n) { try { return window[n]; } catch (e) { return null; } }   // reading a blocked store can throw
+    var LS = optOut ? null : store("localStorage"), SS = store("sessionStorage");
+    function rd(st, k) { try { return st ? JSON.parse(st.getItem(k)) : null; } catch (e) { return null; } }
+    function wr(st, k, v) { try { if (st) st.setItem(k, JSON.stringify(v)); } catch (e) {} }
+    function cl(s, n) { return String(s || "").toLowerCase().replace(/[^a-z0-9._\/ -]/g, "").slice(0, n || 40); }
+
+    // Umami loads async, so events fired before it arrives wait in a queue
+    var queue = [], counting = !!UMAMI_ID && !optOut;
+    function track(n, p) {
+      if (!counting) return;
+      try {
+        if (window.umami && window.umami.track) window.umami.track(n, p);
+        else if (counting) queue.push([n, p]);
+      } catch (e) {}
+    }
+    if (counting) {
+      var u = document.createElement("script");
+      u.src = "https://cloud.umami.is/script.js";
+      u.setAttribute("data-website-id", UMAMI_ID);
+      u.setAttribute("data-domains", "foreveryounglights.com");   // the mirror, previews and localhost never count
+      u.onload = function () { var q = queue; queue = []; q.forEach(function (x) { track(x[0], x[1]); }); };
+      document.head.appendChild(u);
+    }
+
+    // how did this visit begin? a UTM tag wins, then the referring site, else direct
+    function classify() {
+      var q = new URLSearchParams(location.search), s = cl(q.get("utm_source")), m = cl(q.get("utm_medium")), c = cl(q.get("utm_campaign"), 60);
+      if (s === "google" && c.indexOf("gbp") === 0) return "Google Business Profile";
+      if (/chatgpt|openai|perplexity|gemini|copilot|claude/.test(s)) return "AI assistant (" + s + ")";   // ChatGPT tags its links utm_source=chatgpt.com
+      if (s) return s + (m ? " / " + m : "") + (c ? " / " + c : "");
+      var h = ""; try { h = new URL(document.referrer).hostname.replace(/^www\./, ""); } catch (e) {}
+      if (!h || h === location.hostname.replace(/^www\./, "") || /netlify\.app$/.test(h)) return "direct (typed, texted or saved link)";
+      if (/chatgpt\.com|openai\.com|perplexity\.ai|gemini\.google\.com|copilot\.microsoft\.com|claude\.ai/.test(h)) return "AI assistant (" + h + ")";
+      if (/(^|\.)google\./.test(h)) return "Google search or Maps";
+      if (/bing\.com|duckduckgo\.com|yahoo\.com|ecosia\.org|brave\.com/.test(h)) return "search (" + h + ")";
+      if (/thumbtack\.com/.test(h)) return "Thumbtack";
+      if (/facebook\.com|instagram\.com|nextdoor\.com/.test(h)) return h;
+      return "link from " + h;
+    }
+
+    var A = rd(LS, "fyl_a");                             // first visit in this browser: how, where, when, visit count
+    if (!A || typeof A !== "object" || (A.t && now - A.t > TTL)) A = {};
+    var S = rd(SS, "fyl_s"), fresh = !(S && S.pv && S.tap);   // this visit: how it began, pages read, call/text taps
+    if (fresh) S = { pv: [], tap: [] };
+    if (S.pv[S.pv.length - 1] !== path) S.pv.push(path);
+    S.pv = S.pv.slice(-8);
+    if (fresh) {
+      S.how = classify(); A.n = (A.n || 0) + 1;
+      if (!A.f) { A.f = { how: S.how, land: path, d: new Date().toLocaleDateString("en-CA") }; A.t = now; }
+      wr(LS, "fyl_a", A);
+    }
+    wr(SS, "fyl_s", S);
+
+    document.addEventListener("click", function (ev) {    // call and text taps, split by button (data-cta)
+      var a = ev.target && ev.target.closest ? ev.target.closest('a[href^="tel:"],a[href^="sms:"]') : null;
+      if (!a) return;
+      var call = a.getAttribute("href").indexOf("tel:") === 0, where = a.getAttribute("data-cta") || "inline";
+      track(call ? "call-click" : "text-click", { where: where, page: path });
+      S.tap = S.tap.concat((call ? "Call" : "Text") + " (" + where + ") on " + path).slice(-3);
+      wr(SS, "fyl_s", S);
+    }, true);
+
+    // Netlify's /thanks/ refreshes straight back here. A send from this tab in the last hour counts
+    // once (the Netlify referrer covers a browser that lost the stamp); reloads and bookmarks never do.
+    var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0], how = nav ? nav.type : "navigate";
+    if (path === "/thanks/" && ((S.sent && now - S.sent < 36e5 && how !== "reload") ||
+        (how === "navigate" && document.referrer.indexOf("foreveryounglights.netlify.app") > -1))) {
+      track("quote-confirmed"); S.sent = 0; wr(SS, "fyl_s", S);
+    }
+
+    var form = document.querySelector('form[name="quote"]');
+    if (!form) return;
+    var t0 = 0, lastF = "", sent = false, gone = false;
+    function filled() {
+      var n = 0;
+      [].forEach.call(form.elements, function (el) {
+        if (el.name && el.type !== "hidden" && el.type !== "submit" && el.name !== "company-website" && (el.type === "checkbox" ? el.checked : el.value)) n++;
+      });
+      return n;
+    }
+    function device() {
+      var ua = navigator.userAgent, ipad = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;   // iPads report as a Mac
+      var os = /iPhone|iPod/.test(ua) ? "iPhone" : /iPad/.test(ua) || ipad ? "iPad" : /Android/.test(ua) ? "Android" : /Windows/.test(ua) ? "Windows" : /Mac/.test(ua) ? "Mac" : "other";
+      var b = /FBAN|FBAV/.test(ua) ? "Facebook app" : /Instagram/.test(ua) ? "Instagram app" : /GSA\//.test(ua) ? "Google app" : /Edg/.test(ua) ? "Edge" : /Firefox|FxiOS/.test(ua) ? "Firefox" : /Chrome|CriOS/.test(ua) ? "Chrome" : /Safari/.test(ua) ? "Safari" : "browser";
+      return (matchMedia("(pointer:coarse)").matches ? "phone or tablet" : "computer") + ", " + os + " " + b;
+    }
+    form.addEventListener("focusin", function (e) {
+      var n = e.target && e.target.name;
+      if (!n || n === "company-website") return;
+      if (!t0) { t0 = Date.now(); track("form-start", { page: path }); }
+      lastF = n;
+    });
+    form.addEventListener("invalid", function (e) { track("form-error", { field: e.target.name }); }, true);
+    form.addEventListener("submit", function () {       // capture phase: runs before the browser packs the form
+      var first = !sent; sent = true; S.sent = Date.now(); wr(SS, "fyl_s", S);   // a double click counts once
+      var pg = form.elements.page;
+      var note = "found us: " + (S.how || "unknown") + " | this visit: " + S.pv.join(" > ") +
+        (S.tap.length ? " | tapped " + S.tap.join(", ") : "") + " | " + device() +
+        (t0 ? " | " + Math.round((Date.now() - t0) / 1000) + "s on the form" : "") +
+        (A.n > 1 && A.f ? " | visit " + A.n + ", first came " + A.f.d + " from " + A.f.how + " (landed " + A.f.land + ")" : "");
+      var extra = note.slice(0, 480);
+      // The lead reader scans the whole notification for test markers.
+      // Keep the canonical page alone if the optional note could trigger that filter.
+      if (pg && pg.value.indexOf(" | ") === -1 &&
+          !/\btest\b|\bjarvis\b|not a real lead/i.test(extra)) {
+        pg.value = pg.value + " | " + extra;
+      }
+      if (first) track("quote-submit", { page: path });
+    }, true);
+    function leave() {
+      if (t0 && !sent && !gone) { gone = true; track("form-abandon", { last_field: lastF, filled: filled(), seconds: Math.round((Date.now() - t0) / 1000) }); }
+    }
+    document.addEventListener("visibilitychange", function () { if (document.visibilityState === "hidden") leave(); });
+    window.addEventListener("pagehide", leave);
+  })();
 })();
