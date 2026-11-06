@@ -850,6 +850,218 @@
       "srcset_webp": "/assets/img/gallery-10-480.webp 480w, /assets/img/gallery-10-720.webp 720w, /assets/img/gallery-10-960.webp 960w",
       "fallback": "/assets/img/gallery-10-960.webp"
     },
+    "town-ln-2024": {
+      "slot": "town-ln-2024",
+      "source_photo": "2024-12-04-holiday-lighting-roofline-lights-wrap--IMG_0917.jpg",
+      "ratio": 0.8,
+      "width": 720,
+      "height": 900,
+      "alt": "A backyard pergola outlined in multicolor lights at night, with two tall palms behind it wrapped red and white, candy-cane style.",
+      "caption": "December 2024",
+      "note": null,
+      "avif": [
+        {
+          "w": 360,
+          "h": 450,
+          "file": "town-ln-2024-360.avif",
+          "bytes": 10533
+        },
+        {
+          "w": 540,
+          "h": 675,
+          "file": "town-ln-2024-540.avif",
+          "bytes": 17159
+        },
+        {
+          "w": 720,
+          "h": 900,
+          "file": "town-ln-2024-720.avif",
+          "bytes": 23539
+        }
+      ],
+      "webp": [
+        {
+          "w": 360,
+          "h": 450,
+          "file": "town-ln-2024-360.webp",
+          "bytes": 12344
+        },
+        {
+          "w": 540,
+          "h": 675,
+          "file": "town-ln-2024-540.webp",
+          "bytes": 20898
+        },
+        {
+          "w": 720,
+          "h": 900,
+          "file": "town-ln-2024-720.webp",
+          "bytes": 29630
+        }
+      ],
+      "srcset_avif": "/assets/img/town-ln-2024-360.avif 360w, /assets/img/town-ln-2024-540.avif 540w, /assets/img/town-ln-2024-720.avif 720w",
+      "srcset_webp": "/assets/img/town-ln-2024-360.webp 360w, /assets/img/town-ln-2024-540.webp 540w, /assets/img/town-ln-2024-720.webp 720w",
+      "fallback": "/assets/img/town-ln-2024-720.webp"
+    },
+    "town-ln-2025": {
+      "slot": "town-ln-2025",
+      "source_photo": "2025-11-17-holiday-lighting-roofline-lights-wrap--IMG_0985.jpg",
+      "ratio": 0.8001,
+      "width": 720,
+      "height": 900,
+      "alt": "The same pergola and palms lit again the next season: multicolor lights along the pergola beams and posts, the palms wrapped red and white.",
+      "caption": "November 2025",
+      "note": null,
+      "avif": [
+        {
+          "w": 360,
+          "h": 450,
+          "file": "town-ln-2025-360.avif",
+          "bytes": 8806
+        },
+        {
+          "w": 540,
+          "h": 675,
+          "file": "town-ln-2025-540.avif",
+          "bytes": 14374
+        },
+        {
+          "w": 720,
+          "h": 900,
+          "file": "town-ln-2025-720.avif",
+          "bytes": 19559
+        }
+      ],
+      "webp": [
+        {
+          "w": 360,
+          "h": 450,
+          "file": "town-ln-2025-360.webp",
+          "bytes": 10088
+        },
+        {
+          "w": 540,
+          "h": 675,
+          "file": "town-ln-2025-540.webp",
+          "bytes": 17240
+        },
+        {
+          "w": 720,
+          "h": 900,
+          "file": "town-ln-2025-720.webp",
+          "bytes": 24956
+        }
+      ],
+      "srcset_avif": "/assets/img/town-ln-2025-360.avif 360w, /assets/img/town-ln-2025-540.avif 540w, /assets/img/town-ln-2025-720.avif 720w",
+      "srcset_webp": "/assets/img/town-ln-2025-360.webp 360w, /assets/img/town-ln-2025-540.webp 540w, /assets/img/town-ln-2025-720.webp 720w",
+      "fallback": "/assets/img/town-ln-2025-720.webp"
+    },
+    "town-ln-palms": {
+      "slot": "town-ln-palms",
+      "source_photo": "2025-11-17-holiday-lighting-roofline-lights-wrap--IMG_0987.jpg",
+      "ratio": 0.8,
+      "width": 960,
+      "height": 1200,
+      "alt": "Two tall palm trunks wrapped from the ground up in red and white lights, the fronds lit green.",
+      "caption": "Palms wrapped candy-cane style",
+      "note": null,
+      "avif": [
+        {
+          "w": 480,
+          "h": 600,
+          "file": "town-ln-palms-480.avif",
+          "bytes": 10993
+        },
+        {
+          "w": 720,
+          "h": 900,
+          "file": "town-ln-palms-720.avif",
+          "bytes": 17889
+        },
+        {
+          "w": 960,
+          "h": 1200,
+          "file": "town-ln-palms-960.avif",
+          "bytes": 24294
+        }
+      ],
+      "webp": [
+        {
+          "w": 480,
+          "h": 600,
+          "file": "town-ln-palms-480.webp",
+          "bytes": 13196
+        },
+        {
+          "w": 720,
+          "h": 900,
+          "file": "town-ln-palms-720.webp",
+          "bytes": 22402
+        },
+        {
+          "w": 960,
+          "h": 1200,
+          "file": "town-ln-palms-960.webp",
+          "bytes": 32546
+        }
+      ],
+      "srcset_avif": "/assets/img/town-ln-palms-480.avif 480w, /assets/img/town-ln-palms-720.avif 720w, /assets/img/town-ln-palms-960.avif 960w",
+      "srcset_webp": "/assets/img/town-ln-palms-480.webp 480w, /assets/img/town-ln-palms-720.webp 720w, /assets/img/town-ln-palms-960.webp 960w",
+      "fallback": "/assets/img/town-ln-palms-960.webp"
+    },
+    "town-dp-columns": {
+      "slot": "town-dp-columns",
+      "source_photo": "2025-11-17-holiday-lighting-roofline-lights-wrap--IMG_1004.jpg",
+      "ratio": 1.5004,
+      "width": 960,
+      "height": 640,
+      "alt": "Two entry columns wrapped top to bottom in warm-white lights at dusk, under a tile roof edge lined with warm-white bulbs.",
+      "caption": "Entry columns, warm-white wrap",
+      "note": null,
+      "avif": [
+        {
+          "w": 480,
+          "h": 320,
+          "file": "town-dp-columns-480.avif",
+          "bytes": 15237
+        },
+        {
+          "w": 720,
+          "h": 480,
+          "file": "town-dp-columns-720.avif",
+          "bytes": 23198
+        },
+        {
+          "w": 960,
+          "h": 640,
+          "file": "town-dp-columns-960.avif",
+          "bytes": 30614
+        }
+      ],
+      "webp": [
+        {
+          "w": 480,
+          "h": 320,
+          "file": "town-dp-columns-480.webp",
+          "bytes": 17920
+        },
+        {
+          "w": 720,
+          "h": 480,
+          "file": "town-dp-columns-720.webp",
+          "bytes": 28714
+        },
+        {
+          "w": 960,
+          "h": 640,
+          "file": "town-dp-columns-960.webp",
+          "bytes": 39736
+        }
+      ],
+      "srcset_avif": "/assets/img/town-dp-columns-480.avif 480w, /assets/img/town-dp-columns-720.avif 720w, /assets/img/town-dp-columns-960.avif 960w",
+      "srcset_webp": "/assets/img/town-dp-columns-480.webp 480w, /assets/img/town-dp-columns-720.webp 720w, /assets/img/town-dp-columns-960.webp 960w",
+      "fallback": "/assets/img/town-dp-columns-960.webp"
+    },
     "permanent-1": {
       "slot": "permanent-1",
       "source_photo": "2025-11-28-permanent-soffit-lights-purple-green---IMG_1193.jpg",
