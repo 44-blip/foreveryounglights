@@ -214,59 +214,6 @@
       "srcset_webp": "/assets/img/proof-1-480.webp 480w, /assets/img/proof-1-720.webp 720w, /assets/img/proof-1-960.webp 960w",
       "fallback": "/assets/img/proof-1-960.webp"
     },
-    "proof-2": {
-      "slot": "proof-2",
-      "source_photo": "2025-11-24-tudor-warm-white-roofline-tree-wrap-e--att.74PPjyJkx2w0LKft8oPWgQolbUIhaaOKXqhgt0ZWADE.jpg",
-      "ratio": 1.5,
-      "width": 960,
-      "height": 640,
-      "alt": "Tudor-style home outlined in warm-white Christmas lights along every gable and around the arched entry.",
-      "caption": "Premium Full Front package",
-      "note": null,
-      "avif": [
-        {
-          "w": 480,
-          "h": 320,
-          "file": "proof-2-480.avif",
-          "bytes": 8970
-        },
-        {
-          "w": 720,
-          "h": 480,
-          "file": "proof-2-720.avif",
-          "bytes": 17804
-        },
-        {
-          "w": 960,
-          "h": 640,
-          "file": "proof-2-960.avif",
-          "bytes": 32066
-        }
-      ],
-      "webp": [
-        {
-          "w": 480,
-          "h": 320,
-          "file": "proof-2-480.webp",
-          "bytes": 11396
-        },
-        {
-          "w": 720,
-          "h": 480,
-          "file": "proof-2-720.webp",
-          "bytes": 22996
-        },
-        {
-          "w": 960,
-          "h": 640,
-          "file": "proof-2-960.webp",
-          "bytes": 38938
-        }
-      ],
-      "srcset_avif": "/assets/img/proof-2-480.avif 480w, /assets/img/proof-2-720.avif 720w, /assets/img/proof-2-960.avif 960w",
-      "srcset_webp": "/assets/img/proof-2-480.webp 480w, /assets/img/proof-2-720.webp 720w, /assets/img/proof-2-960.webp 960w",
-      "fallback": "/assets/img/proof-2-960.webp"
-    },
     "proof-3": {
       "slot": "proof-3",
       "source_photo": "2025-11-28-holiday-lighting-roofline-lights-lit---IMG_1232-number-blurred.jpg",
@@ -591,7 +538,7 @@
       "ratio": 1.5004,
       "width": 960,
       "height": 640,
-      "alt": "Modern single-story home with Christmas icicle lights along the eaves and a mature tree wrapped in warm white.",
+      "alt": "Modern home with Christmas icicle lights along the eaves, a lit balcony railing with a wreath, and a mature tree wrapped in warm white.",
       "caption": "Basic Roofline package \u00b7 tree wrapping add-on",
       "note": null,
       "avif": [
@@ -796,59 +743,6 @@
       "srcset_avif": "/assets/img/gallery-09-480.avif 480w, /assets/img/gallery-09-720.avif 720w, /assets/img/gallery-09-960.avif 960w",
       "srcset_webp": "/assets/img/gallery-09-480.webp 480w, /assets/img/gallery-09-720.webp 720w, /assets/img/gallery-09-960.webp 960w",
       "fallback": "/assets/img/gallery-09-960.webp"
-    },
-    "gallery-10": {
-      "slot": "gallery-10",
-      "source_photo": "2025-11-11-warm-white-roofline-single-story-emai--att.WOTZ6KUPBZg56D6-i5mbxlyeT2sCf5ttmAtYoq2EDTo.jpg",
-      "ratio": 1.5,
-      "width": 960,
-      "height": 640,
-      "alt": "Single-story home with a warm-white Christmas roofline over the garage and entry at dusk.",
-      "caption": "Basic Roofline package",
-      "note": null,
-      "avif": [
-        {
-          "w": 480,
-          "h": 320,
-          "file": "gallery-10-480.avif",
-          "bytes": 5175
-        },
-        {
-          "w": 720,
-          "h": 480,
-          "file": "gallery-10-720.avif",
-          "bytes": 9973
-        },
-        {
-          "w": 960,
-          "h": 640,
-          "file": "gallery-10-960.avif",
-          "bytes": 16918
-        }
-      ],
-      "webp": [
-        {
-          "w": 480,
-          "h": 320,
-          "file": "gallery-10-480.webp",
-          "bytes": 6762
-        },
-        {
-          "w": 720,
-          "h": 480,
-          "file": "gallery-10-720.webp",
-          "bytes": 13642
-        },
-        {
-          "w": 960,
-          "h": 640,
-          "file": "gallery-10-960.webp",
-          "bytes": 23200
-        }
-      ],
-      "srcset_avif": "/assets/img/gallery-10-480.avif 480w, /assets/img/gallery-10-720.avif 720w, /assets/img/gallery-10-960.avif 960w",
-      "srcset_webp": "/assets/img/gallery-10-480.webp 480w, /assets/img/gallery-10-720.webp 720w, /assets/img/gallery-10-960.webp 960w",
-      "fallback": "/assets/img/gallery-10-960.webp"
     },
     "town-ln-2024": {
       "slot": "town-ln-2024",
@@ -1062,141 +956,6 @@
       "srcset_webp": "/assets/img/town-dp-columns-480.webp 480w, /assets/img/town-dp-columns-720.webp 720w, /assets/img/town-dp-columns-960.webp 960w",
       "fallback": "/assets/img/town-dp-columns-960.webp"
     },
-    "permanent-1": {
-      "slot": "permanent-1",
-      "source_photo": "2025-11-28-permanent-soffit-lights-purple-green---IMG_1193.jpg",
-      "ratio": 0.8,
-      "width": 720,
-      "height": 900,
-      "alt": "Permanent RGB eave lights on a home, set to alternating purple and green.",
-      "caption": "Permanent RGB roofline lighting",
-      "note": null,
-      "avif": [
-        {
-          "w": 480,
-          "h": 600,
-          "file": "permanent-1-480.avif",
-          "bytes": 26805
-        },
-        {
-          "w": 720,
-          "h": 900,
-          "file": "permanent-1-720.avif",
-          "bytes": 56123
-        }
-      ],
-      "webp": [
-        {
-          "w": 480,
-          "h": 600,
-          "file": "permanent-1-480.webp",
-          "bytes": 30500
-        },
-        {
-          "w": 720,
-          "h": 900,
-          "file": "permanent-1-720.webp",
-          "bytes": 62798
-        }
-      ],
-      "srcset_avif": "/assets/img/permanent-1-480.avif 480w, /assets/img/permanent-1-720.avif 720w",
-      "srcset_webp": "/assets/img/permanent-1-480.webp 480w, /assets/img/permanent-1-720.webp 720w",
-      "fallback": "/assets/img/permanent-1-720.webp"
-    },
-    "permanent-2": {
-      "slot": "permanent-2",
-      "source_photo": "2026-06-23-holiday-lighting-permanent-led--IMG_0301.jpg",
-      "ratio": 1.5005,
-      "width": 960,
-      "height": 640,
-      "alt": "The same style of permanent roofline lighting set to red, white and blue for the Fourth of July.",
-      "caption": "Permanent RGB roofline lighting \u2014 Fourth of July setting",
-      "note": null,
-      "avif": [
-        {
-          "w": 480,
-          "h": 320,
-          "file": "permanent-2-480.avif",
-          "bytes": 16149
-        },
-        {
-          "w": 720,
-          "h": 480,
-          "file": "permanent-2-720.avif",
-          "bytes": 34377
-        },
-        {
-          "w": 960,
-          "h": 640,
-          "file": "permanent-2-960.avif",
-          "bytes": 57282
-        }
-      ],
-      "webp": [
-        {
-          "w": 480,
-          "h": 320,
-          "file": "permanent-2-480.webp",
-          "bytes": 16868
-        },
-        {
-          "w": 720,
-          "h": 480,
-          "file": "permanent-2-720.webp",
-          "bytes": 35756
-        },
-        {
-          "w": 960,
-          "h": 640,
-          "file": "permanent-2-960.webp",
-          "bytes": 60542
-        }
-      ],
-      "srcset_avif": "/assets/img/permanent-2-480.avif 480w, /assets/img/permanent-2-720.avif 720w, /assets/img/permanent-2-960.avif 960w",
-      "srcset_webp": "/assets/img/permanent-2-480.webp 480w, /assets/img/permanent-2-720.webp 720w, /assets/img/permanent-2-960.webp 960w",
-      "fallback": "/assets/img/permanent-2-960.webp"
-    },
-    "permanent-3": {
-      "slot": "permanent-3",
-      "source_photo": "2026-06-23-holiday-lighting-permanent-led--IMG_0256.jpg",
-      "ratio": 0.8,
-      "width": 720,
-      "height": 900,
-      "alt": "Color-changing stake lights along a lawn edge at night.",
-      "caption": "Pathway and lawn lighting add-on",
-      "note": null,
-      "avif": [
-        {
-          "w": 480,
-          "h": 600,
-          "file": "permanent-3-480.avif",
-          "bytes": 27076
-        },
-        {
-          "w": 720,
-          "h": 900,
-          "file": "permanent-3-720.avif",
-          "bytes": 47564
-        }
-      ],
-      "webp": [
-        {
-          "w": 480,
-          "h": 600,
-          "file": "permanent-3-480.webp",
-          "bytes": 31612
-        },
-        {
-          "w": 720,
-          "h": 900,
-          "file": "permanent-3-720.webp",
-          "bytes": 56808
-        }
-      ],
-      "srcset_avif": "/assets/img/permanent-3-480.avif 480w, /assets/img/permanent-3-720.avif 720w",
-      "srcset_webp": "/assets/img/permanent-3-480.webp 480w, /assets/img/permanent-3-720.webp 720w",
-      "fallback": "/assets/img/permanent-3-720.webp"
-    },
     "about-1": {
       "slot": "about-1",
       "source_photo": "2022-10-misc--IMG_1259-nonumber.jpg",
@@ -1261,13 +1020,6 @@
       "h": 630,
       "source_photo": "2025-11-17-holiday-lighting-roofline-lights-wrap--IMG_1030.jpg"
     },
-    "proof-2": {
-      "file": "/assets/img/proof-2.jpg",
-      "bytes": 109599,
-      "w": 1200,
-      "h": 630,
-      "source_photo": "2025-11-24-tudor-warm-white-roofline-tree-wrap-e--att.74PPjyJkx2w0LKft8oPWgQolbUIhaaOKXqhgt0ZWADE.jpg"
-    },
     "gallery-01": {
       "file": "/assets/img/gallery-01.jpg",
       "bytes": 169928,
@@ -1295,13 +1047,6 @@
       "w": 1200,
       "h": 630,
       "source_photo": "2025-11-17-holiday-lighting-roofline-lights-wrap--IMG_1003.jpg"
-    },
-    "permanent-1": {
-      "file": "/assets/img/permanent-1.jpg",
-      "bytes": 109449,
-      "w": 1200,
-      "h": 630,
-      "source_photo": "2025-11-28-permanent-soffit-lights-purple-green---IMG_1193.jpg"
     }
   },
   "apple_touch_icon": {
