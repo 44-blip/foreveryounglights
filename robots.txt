@@ -1,5 +1,5 @@
 # foreveryounglights.com
-# Every crawler — search and AI alike — gets the same fully-rendered static HTML
+# Every crawler (search and AI alike) gets the same fully-rendered static HTML
 # a browser gets. There is no JS shell left to miss (F-GEO-01, F-TECH-01).
 
 User-agent: *
