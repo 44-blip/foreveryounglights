@@ -23,8 +23,8 @@
 
 ## Service area
 
-All of Orange County, California. Every one of these has its own page at
-https://foreveryounglights.com/service-areas/<city>/ :
+All of Orange County, California. Every one of these has its own page, linked from
+https://foreveryounglights.com/service-areas/ :
 
 Laguna Hills, Mission Viejo, Irvine, Laguna Niguel, Laguna Woods, Ladera Ranch,
 Rancho Santa Margarita, San Juan Capistrano, San Clemente, Aliso Viejo, Anaheim, Brea,
