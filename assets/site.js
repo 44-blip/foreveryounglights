@@ -205,7 +205,7 @@
   // form they choose to send. Under Global Privacy Control or Do Not Track nothing is kept
   // between visits and Umami never loads. Field names and counts only, never typed values.
   (function () {
-    var UMAMI_ID = "";               // Umami website ID from Jason's account; "" = no outside script at all
+    var UMAMI_ID = "70984b76-ddeb-4e8d-8738-0f520c71a987";   // Umami website ID (Umami Cloud, set up 11/20/2026); "" = no outside script at all
     var path = location.pathname, now = Date.now(), TTL = 30 * 864e5;
     var optOut = navigator.globalPrivacyControl === true || navigator.doNotTrack === "1";
     function store(n) { try { return window[n]; } catch (e) { return null; } }   // reading a blocked store can throw
