@@ -1,0 +1,258 @@
+@charset "utf-8";
+/* ============================================================================
+   Forever Young Lighting: the tree order page (/christmas-tree-delivery/order/).
+   Loaded by that one page only. Everything is prefixed cz- and uses the tokens
+   of site.css (the crate label): flat fields of ink, square corners, a 2px rule,
+   a 3px paper edge, and a state change is an ink change. No gradient, no shadow,
+   no rounded corner, no @keyframes. site.css is not changed.
+   ========================================================================= */
+
+/* `hidden` must win over .btn { display: inline-flex } and friends. */
+.cz [hidden] { display: none !important; }
+
+.cz-preview {
+  margin-top: var(--s-5); padding: var(--s-2) var(--s-4);
+  background: var(--berry); color: #FFFFFF;
+  font-family: var(--mono); font-size: var(--step--2); font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   1. LAYOUT. One column on a phone; picture beside the choices from 960px;
+      picture, choices and the order summary side by side from 1200px.
+   -------------------------------------------------------------------------- */
+.cz {
+  --cz-top: 67px;                       /* the sticky header's height; the script measures it */
+  display: grid; gap: var(--s-6); margin-top: var(--s-5);
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "bar" "view" "pick" "sum" "order";
+}
+.cz > * { min-width: 0; }
+.cz-bar    { grid-area: bar; }
+.cz__view  { grid-area: view; }
+.cz__pick  { grid-area: pick; display: grid; gap: var(--s-6); align-content: start; }
+.cz__sum   { grid-area: sum; scroll-margin-top: calc(var(--cz-top) + 4rem); }
+.cz__order { grid-area: order; }
+
+@media (min-width: 960px) {
+  .cz {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--s-7);
+    grid-template-areas: "bar bar" "view pick" "view sum" "view order";
+    align-items: start;
+  }
+  .cz__view {
+    position: sticky; top: calc(var(--cz-top) + 3.5rem);
+    display: flex; flex-direction: column;
+    height: calc(100svh - var(--cz-top) - 4.5rem); min-height: 26rem; max-height: 52rem;
+  }
+  .cz__view .cz-stage { flex: 1 1 auto; height: auto; min-height: 0; }
+}
+@media (min-width: 1200px) {
+  .cz {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, .85fr); column-gap: var(--s-6);
+    grid-template-areas: "view pick sum" "view order sum";
+  }
+  .cz-bar { display: none !important; }
+  .cz__view { top: calc(var(--cz-top) + var(--s-4)); height: calc(100svh - var(--cz-top) - 2rem); }
+  .cz__sum { position: sticky; top: calc(var(--cz-top) + var(--s-4)); }
+}
+
+/* --------------------------------------------------------------------------
+   2. THE ONE-LINE SUMMARY (below 1200px). Sticks under the header so the
+      order is always in view while the choices scroll. Script only.
+   -------------------------------------------------------------------------- */
+.cz-bar {
+  position: sticky; top: var(--cz-top); z-index: 40;
+  display: flex; align-items: center; gap: var(--s-3);
+  margin-bottom: calc(var(--s-6) * -1 + var(--s-3));
+  background: var(--night); color: var(--paper);
+  border-bottom: 3px solid var(--berry);
+  padding: var(--s-2) var(--s-3);
+  font-family: var(--mono); font-size: var(--step--2); font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+}
+.cz-bar__text { flex: 1 1 auto; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.cz-bar__link { flex: none; color: var(--paper); text-decoration: none;
+  border-bottom: 2px solid currentColor; }
+
+/* --------------------------------------------------------------------------
+   3. THE TREE PICTURE. A room wall drawn to scale: a ruler in feet up the left
+      edge, a floor line, and the tree standing on it. Every size below is a
+      share of the box's own height, so the ruler reads true at any size and
+      with scripts off:
+          floor line  =  9% up from the bottom
+          one foot    =  86% / --room-ft
+      --frame-ft and --below-ft are the picture's height and the part of it
+      under the floor line, in feet, for the tree on the page (set on the box
+      by the build from the data, and again by the script).
+   -------------------------------------------------------------------------- */
+.cz-stage {
+  position: relative; overflow: hidden;
+  height: min(64svh, 30rem); min-height: 20rem;
+  border: var(--edge) solid var(--night);
+  touch-action: pan-y; cursor: grab;
+  -webkit-user-select: none; user-select: none;
+}
+/* The backdrop comes from the data (viewer.backdrop): a white wall, or the night ink. */
+.cz--light .cz-stage { background: var(--stock); color: var(--night); --cz-line: rgb(17 24 39 / .16); }
+.cz--night .cz-stage { background: var(--night); color: var(--paper); --cz-line: rgb(249 250 251 / .22); }
+.cz-stage.is-dragging { cursor: grabbing; }
+
+.cz-floor {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 9%;
+  background: var(--paper); border-top: 2px solid var(--cz-line);
+}
+.cz--night .cz-floor { background: transparent; }
+
+.cz-tree {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  aspect-ratio: var(--frame-ar);                /* the frames' own width / height, from the manifest */
+  height: calc(86% * var(--frame-ft) / var(--room-ft));
+  bottom: calc(9% - 86% * var(--below-ft) / var(--room-ft));
+  pointer-events: none;
+}
+/* The still picture, and the canvas that takes its place once a frame has arrived. */
+.cz-poster, .cz-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%; max-width: none;
+  background: transparent;                      /* site.css gives every img a night ground */
+}
+
+.cz-ruler { position: absolute; inset: 0; pointer-events: none;
+  font-family: var(--mono); font-size: var(--step--2); line-height: 1; letter-spacing: .06em; }
+.cz-ruler__unit { position: absolute; left: var(--s-3); top: var(--s-3);
+  font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.cz-tick {
+  position: absolute; left: 0; width: var(--s-4);
+  bottom: calc(9% + 86% * var(--n) / var(--room-ft));
+  border-top: 2px solid currentColor;
+}
+.cz-tick > span { position: absolute; left: calc(100% + var(--s-2)); top: -.55em; }
+/* The picked height range: a solid bar on the ruler and two lines across the wall. */
+.cz-range {
+  position: absolute; left: 0; right: 0;
+  bottom: calc(9% + 86% * var(--lo) / var(--room-ft));
+  height: calc(86% * (var(--hi) - var(--lo)) / var(--room-ft));
+  border-block: 2px solid var(--cz-line);
+  border-left: var(--s-2) solid var(--berry);
+}
+
+.cz-badge, .cz-hint {
+  position: absolute; bottom: 0;
+  font-family: var(--mono); font-size: var(--step--2); font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: var(--s-2) var(--s-3); pointer-events: none;
+}
+.cz-badge { left: 0; background: var(--night); color: var(--paper); }
+.cz--night .cz-badge { background: var(--paper); color: var(--night); }
+.cz-hint { right: auto; left: 50%; transform: translateX(-50%); bottom: auto; top: var(--s-3);
+  border: 2px solid currentColor; background: var(--stock); }
+.cz--night .cz-hint { background: var(--night); }
+
+.cz-turn { position: absolute; right: 0; bottom: 0; display: flex; }
+.cz-turn__btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; cursor: pointer;
+  background: var(--night); color: var(--paper);
+  border-left: 1px solid rgb(249 250 251 / .22);
+  transition: background-color var(--dur-ui) var(--ease-house);
+}
+.cz-turn__btn:hover, .cz-turn__btn:active { background: var(--berry); }
+.cz-turn__btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none;
+  stroke-width: 2.5; stroke-linecap: square; }
+.cz-note { margin-top: var(--s-3); max-width: var(--measure); }
+
+/* --------------------------------------------------------------------------
+   4. THE CHOICES. The tree is a printed box. An add-on is a printed box with a
+      tick mark; ticked = the box takes the night ink. The input itself stays in
+      place under the box, so the keyboard and a screen reader work on it.
+      With scripts off (.cz without .cz--js) the tick boxes cannot change what
+      the form sends, so they are not offered: the add-ons read as a plain list.
+   -------------------------------------------------------------------------- */
+.cz-group { border: 0; padding: 0; margin: 0; min-width: 0; scroll-margin-top: calc(var(--cz-top) + 4rem); }
+.cz-group__legend { padding: 0; }
+.cz-group__text { margin-top: var(--s-1); }
+.cz-opts { display: grid; gap: var(--s-2); margin-top: var(--s-3); }
+/* The pick-one for the stand takes the berry edge while it still needs an answer. */
+.cz.is-gated .cz-stand .cz-opt__box { border-color: var(--berry); }
+
+.cz-item {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--s-3); row-gap: var(--s-1);
+  align-items: baseline; margin-top: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  background: var(--night); color: var(--paper);
+  border: 2px solid var(--night);
+}
+.cz-item__name { font-weight: 700; line-height: 1.25; }
+.cz-item__price { font-family: var(--slab); font-size: var(--step-1); line-height: 1; }
+.cz-item__text { grid-column: 1 / -1; font-size: var(--step--1); line-height: 1.45; color: #D1D5DB; }
+
+.cz-opt { position: relative; display: block; cursor: pointer; }
+.cz-opt input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.cz-opt__box {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: var(--s-3); row-gap: var(--s-1);
+  align-items: center; min-height: 56px; height: 100%;
+  padding: var(--s-3) var(--s-4);
+  background: var(--stock); color: var(--night);
+  border: 2px solid var(--night);
+  transition: background-color var(--dur-ui) var(--ease-house),
+              border-color var(--dur-ui) var(--ease-house),
+              color var(--dur-ui) var(--ease-house);
+}
+.cz-opt__mark { width: 18px; height: 18px; border: 2px solid currentColor; }
+.cz-opt__name { font-weight: 700; line-height: 1.25; }
+.cz-opt__fee { font-family: var(--slab); font-size: var(--step-1); line-height: 1; }
+.cz-opt__text { grid-column: 2 / -1; font-size: var(--step--1); line-height: 1.45; color: #4B5563; }
+.cz-opt:hover .cz-opt__box { border-color: var(--berry); }
+.cz-opt input:checked + .cz-opt__box { background: var(--night); border-color: var(--night); color: var(--paper); }
+.cz-opt input:checked + .cz-opt__box .cz-opt__mark { background: var(--paper); box-shadow: inset 0 0 0 3px var(--night); }
+.cz-opt input:checked + .cz-opt__box .cz-opt__text { color: #D1D5DB; }
+.cz-opt input:focus-visible + .cz-opt__box { box-shadow: var(--ring); }
+.cz:not(.cz--js) .cz-opt { cursor: default; pointer-events: none; }
+.cz:not(.cz--js) .cz-opt input { display: none; }
+.cz:not(.cz--js) .cz-opt__mark { visibility: hidden; }
+
+/* --------------------------------------------------------------------------
+   5. THE SUMMARY. The tree, each add-on, the stand, and one total. The total
+      shows only when every price in the order is in the data.
+   -------------------------------------------------------------------------- */
+.cz-sum {
+  background: var(--stock); color: var(--night);
+  border: var(--edge) solid var(--night);
+  padding: clamp(1.1rem, 2.4vw, 1.5rem);
+  display: grid; gap: var(--s-4);
+}
+.cz-lines { display: grid; margin: 0; border-top: 2px solid var(--night); }
+.cz-line { display: grid; gap: var(--s-1); padding-block: var(--s-3); border-bottom: 2px solid var(--night); }
+.cz-line dt { font-family: var(--mono); font-size: var(--step--2); font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; }
+.cz-line dd { margin: 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+  gap: var(--s-1) var(--s-4); line-height: 1.35; }
+.cz-line__v { font-weight: 700; }
+.cz-line__v.is-empty { font-weight: 400; color: #4B5563; }
+.cz-line__fee { font-family: var(--slab); font-size: var(--step-0); }
+.cz-line__sub { flex: 1 0 100%; font-size: var(--step--1); color: #4B5563; }
+.cz-total { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+  gap: var(--s-1) var(--s-4); line-height: 1.2; }
+.cz-total b { font-family: var(--mono); font-size: var(--step--2); font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; }
+.cz-total__v { font-family: var(--slab); font-size: var(--step-2); }
+@media (max-width: 1199px) { .cz-sum__go { display: none; } }
+
+/* --------------------------------------------------------------------------
+   6. THE ORDER STEP. The site's own order panel (.quote) and form fields.
+      While an add-on needs a stand choice and none is made, the script closes
+      the fields and shows why.
+   -------------------------------------------------------------------------- */
+.cz-form { display: block; }
+.cz-fields { margin-top: var(--s-5); display: grid; gap: var(--s-4); }
+/* Beside the picture the order panel is a narrow column: one field per row. */
+@media (min-width: 960px) { .cz-fields .fieldrow--2 { grid-template-columns: minmax(0, 1fr); } }
+.cz-day { min-width: 0; }
+.cz-confirm { line-height: 1.4; }
+.cz-gate { margin-top: var(--s-5); padding: var(--s-4); border: 3px solid var(--berry); }
+.cz-gate p + p { margin-top: var(--s-3); }
+.cz.is-gated .cz-fields { display: none; }
+
+/* Keep this last, like site.css keeps its own: the focus ring wins. */
+.cz-stage:focus-visible, .cz-turn__btn:focus-visible, .cz-bar__link:focus-visible { outline: none; box-shadow: var(--ring); }
+.cz-stage:focus-visible { box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 6px var(--night); }
